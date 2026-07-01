@@ -5,9 +5,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'dev-secret-key')
 
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['bebawy2027.pythonanywhere.com']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -49,6 +49,8 @@ TEMPLATES = [
         },
     },
 ]
+
+CSRF_TRUSTED_ORIGINS = ['bebawy2027.pythonanywhere.com']
 
 WSGI_APPLICATION = 'weddingsite.wsgi.application'
 
