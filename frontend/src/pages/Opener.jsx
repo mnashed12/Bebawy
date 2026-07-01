@@ -156,6 +156,23 @@ export default function Opener({ onUnlock }) {
   const [error, setError] = useState(false)
   const [scratchCount, setScratchCount] = useState(0)
 
+  useEffect(() => {
+    const viewport = document.querySelector('meta[name="viewport"]')
+    if (!viewport) return
+
+    const original = viewport.getAttribute('content') || ''
+
+    // Keep the opener fully visible on small screens and prevent pinch-zoom during this sequence.
+    viewport.setAttribute(
+      'content',
+      'width=device-width, initial-scale=0.9, maximum-scale=0.9, user-scalable=no, viewport-fit=cover'
+    )
+
+    return () => {
+      viewport.setAttribute('content', original || 'width=device-width, initial-scale=1')
+    }
+  }, [])
+
   function handlePassword(e) {
     e.preventDefault()
     if (password.toLowerCase() === PASSWORD) {
