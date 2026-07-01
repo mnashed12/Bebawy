@@ -1,0 +1,443 @@
+/* ═══════════════════════════════════
+   ROOT
+═══════════════════════════════════ */
+.opener-root {
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: #f5f0e8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ═══════════════════════════════════
+   ENVELOPE
+═══════════════════════════════════ */
+.envelope-scene {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+  width: 100%;
+  transition: opacity 0.8s ease;
+}
+
+.envelope-scene.fading {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.envelope-wrap {
+  position: relative;
+  width: min(400px, 92vw);
+  animation: fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.envelope-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+  filter:
+    drop-shadow(0 6px 24px rgba(0,0,0,0.15))
+    drop-shadow(0 20px 60px rgba(0,0,0,0.10));
+}
+
+.envelope-password {
+  position: absolute;
+  bottom: 5.5%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.envelope-password input {
+  width: 100%;
+  padding: 10px 14px;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  background: transparent;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-align: center;
+  outline: none;
+  color: #4a3a2a;
+  transition: border-color 0.2s;
+}
+.envelope-password input:focus {
+  border-color: rgba(160,130,90,0.9);
+}
+.envelope-password input::placeholder {
+  color: rgba(0, 0, 0);
+  font-size: 14px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.pw-error {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  color: #6b1f2a;
+  letter-spacing: 0.1em;
+  margin: 0;
+  text-align: center;
+}
+
+/* ═══════════════════════════════════
+   PLANE WINDOW
+═══════════════════════════════════ */
+.plane-scene {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+  gap: 28px;
+  padding: 20px;
+}
+
+.opener-hint {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(18px, 3vw, 24px);
+  font-style: italic;
+  color: #7a6a6a;
+  text-align: center;
+}
+
+.plane-window-outer {
+  /* Cabin wall panel — beige/cream plastic */
+  padding: 36px 40px 44px;
+  background: linear-gradient(160deg, #e8e3db 0%, #d8d3cb 40%, #ccc8c0 100%);
+  border-radius: 16px;
+  box-shadow:
+    0 2px 0 rgba(255,255,255,0.55) inset,
+    0 -2px 0 rgba(0,0,0,0.10) inset,
+    0 8px 32px rgba(0,0,0,0.22),
+    0 2px 6px rgba(0,0,0,0.12);
+}
+
+.plane-window-frame {
+  /* Outer structural frame — thick grey plastic bezel */
+  width: clamp(180px, 38vw, 230px);
+  height: clamp(250px, 53vw, 320px);
+  /* Airplane window shape: tall oval, flatter at top, more rounded at bottom */
+  border-radius: 50% 50% 46% 46% / 44% 44% 40% 40%;
+  background: linear-gradient(160deg, #b8b4ae 0%, #a8a49e 50%, #989490 100%);
+  padding: 14px;
+  box-shadow:
+    inset 0 3px 10px rgba(0,0,0,0.30),
+    inset 0 -2px 6px rgba(255,255,255,0.20),
+    inset 2px 0 6px rgba(0,0,0,0.12),
+    inset -2px 0 6px rgba(0,0,0,0.12),
+    0 6px 24px rgba(0,0,0,0.20);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Inner pane ring — second layer of plastic like real airplane windows */
+.plane-window-frame::before {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  border-radius: 48% 48% 44% 44% / 42% 42% 38% 38%;
+  background: linear-gradient(160deg, #c8c4be 0%, #b8b4ae 100%);
+  box-shadow:
+    inset 0 2px 8px rgba(0,0,0,0.25),
+    inset 0 -1px 4px rgba(255,255,255,0.15);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.plane-window-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 46% 46% 42% 42% / 40% 40% 36% 36%;
+  overflow: hidden;
+  position: relative;
+  background: #a8c8e0;
+  /* Slight inset to sit inside the frame */
+  box-shadow: inset 0 2px 12px rgba(0,0,0,0.30);
+  z-index: 1;
+}
+
+.plane-sky {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, #6ab0d8 0%, #92c8e8 25%, #c0ddf0 55%, #dceaf8 75%, #e8eeee 100%);
+  z-index: 0;
+}
+
+.plane-clouds {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.cloud {
+  position: absolute;
+  background: rgba(255,255,255,0.88);
+  border-radius: 50px;
+}
+.cloud::before, .cloud::after {
+  content: '';
+  position: absolute;
+  background: rgba(255,255,255,0.88);
+  border-radius: 50%;
+}
+.cloud-1 { width: 70px; height: 18px; top: 25%; left: -10%; animation: driftCloud 14s linear infinite; }
+.cloud-1::before { width: 36px; height: 30px; top: -18px; left: 8px; }
+.cloud-1::after  { width: 26px; height: 22px; top: -12px; left: 32px; }
+.cloud-2 { width: 55px; height: 14px; top: 12%; left: 55%; animation: driftCloud 20s 5s linear infinite; }
+.cloud-2::before { width: 28px; height: 22px; top: -14px; left: 6px; }
+.cloud-3 { width: 44px; height: 12px; top: 38%; left: 18%; animation: driftCloud 24s 10s linear infinite; }
+
+@keyframes driftCloud {
+  from { transform: translateX(-140px); }
+  to   { transform: translateX(380px); }
+}
+
+.plane-window-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 2;
+}
+
+.window-shade {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  /* Shade looks like the plastic pull-down blind on real airplane windows */
+  background: linear-gradient(180deg,
+    #ccc8c0 0%,
+    #c4c0b8 30%,
+    #bab6ae 60%,
+    #b0aca4 85%,
+    rgba(176,172,164,0) 100%
+  );
+  transition: transform 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: top center;
+}
+
+/* Shade horizontal ridges (like the real corrugated shade) */
+.window-shade::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 10% 0;
+  background: repeating-linear-gradient(
+    180deg,
+    rgba(255,255,255,0.08) 0px,
+    rgba(255,255,255,0.08) 2px,
+    transparent 2px,
+    transparent 14px
+  );
+  pointer-events: none;
+}
+
+/* Pull-tab at the bottom edge of the shade */
+.window-shade::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 36px;
+  height: 12px;
+  border-radius: 0 0 8px 8px;
+  background: linear-gradient(180deg, #c8c4bc 0%, #a8a49c 100%);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.30), inset 0 1px 2px rgba(255,255,255,0.4);
+}
+
+.plane-window-frame.open .window-shade {
+  transform: translateY(-100%);
+}
+
+.cherub-overlay {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 6;
+  pointer-events: none;
+}
+
+.cherub-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(10px, 2vw, 13px);
+  color: #6b1f2a;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  text-shadow: 0 1px 3px rgba(255,255,255,0.5);
+}
+
+/* ═══════════════════════════════════
+   SCRATCH CARDS
+═══════════════════════════════════ */
+.scratch-scene {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.scratch-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(9px, 2vw, 11px);
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #7a6a6a;
+}
+
+.scratch-row {
+  display: flex;
+  gap: clamp(16px, 5vw, 32px);
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.scratch-wrap {
+  position: relative;
+  width: clamp(90px, 22vw, 110px);
+  height: clamp(90px, 22vw, 110px);
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.scratch-reveal-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(26px, 6vw, 34px);
+  font-weight: 300;
+  color: #2b1f1f;
+  border-radius: 50%;
+  background: #f5f0e8;
+  border: 1px solid #e8d5a3;
+}
+
+/* Canvas sits on top of the revealed text */
+.scratch-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  cursor: crosshair;
+  touch-action: none;
+  box-shadow: 0 4px 16px rgba(160,100,0,0.35);
+}
+
+.sparkle-burst { position: absolute; inset: 0; pointer-events: none; }
+
+.sparkle {
+  --i: 0;
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #c8a96e;
+  transform: translate(-50%, -50%);
+  animation: sparkle-out 0.55s calc(var(--i) * 0.04s) ease-out both;
+}
+.sparkle:nth-child(odd)  { background: #f0d040; width: 5px; height: 5px; }
+.sparkle:nth-child(3n)   { background: #6b1f2a; width: 4px; height: 8px; border-radius: 2px; }
+
+@keyframes sparkle-out {
+  from { opacity: 1; transform: translate(-50%,-50%) rotate(calc(var(--i)*45deg)) translateY(0); }
+  to   { opacity: 0; transform: translate(-50%,-50%) rotate(calc(var(--i)*45deg)) translateY(-48px) scale(0.3); }
+}
+
+.scratch-hint {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: #7a6a6a;
+  animation: pulse-hint 2s ease-in-out infinite;
+}
+@keyframes pulse-hint {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+/* ═══════════════════════════════════
+   DATE REVEAL
+═══════════════════════════════════ */
+.date-reveal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.revealed-chip {
+  width: clamp(88px, 22vw, 110px);
+  height: clamp(88px, 22vw, 110px);
+  border-radius: 50%;
+  background: #f5f0e8;
+  border: 1px solid #e8d5a3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(24px, 6vw, 32px);
+  font-weight: 300;
+  color: #2b1f1f;
+  animation: fadeUp 0.6s ease both;
+}
+
+.we-getting-married {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(26px, 5vw, 36px);
+  font-style: italic;
+  color: #6b1f2a;
+  animation: fadeUp 0.6s 0.3s ease both;
+}
+
+/* ═══════════════════════════════════
+   SHARED UTILITIES
+═══════════════════════════════════ */
+.fade-in {
+  animation: fadeIn 0.8s ease both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.section-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #c8a96e;
+}
