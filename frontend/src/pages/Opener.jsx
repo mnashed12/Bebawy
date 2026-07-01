@@ -161,9 +161,9 @@ export default function Opener({ onUnlock }) {
     if (password.toLowerCase() === PASSWORD) {
       setError(false)
       setStage('fading')
-      setTimeout(() => setStage('plane-closed'), 900)
-      setTimeout(() => setStage('plane-open'), 2400)
-      setTimeout(() => setStage('scratch'), 9200)
+      setTimeout(() => setStage('plane-closed'), 1200)
+      setTimeout(() => setStage('plane-open'), 2800)
+      setTimeout(() => setStage('scratch'), 8800)
     } else {
       setError(true)
     }
@@ -212,7 +212,7 @@ export default function Opener({ onUnlock }) {
                   <div className="cloud cloud-2" />
                   <div className="cloud cloud-3" />
                 </div>
-                <video src="/media/couple_opening.mp4" autoPlay muted loop playsInline className="plane-window-video" />
+                <img src="/media/couple_disney.png" alt="Carolyn and Marco" className="plane-window-video" />
                 <div className="window-shade" />
                 <div className="cherub-overlay"><p className="cherub-text">The Digital Yes</p></div>
               </div>

@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { Routes, Route, NavLink, useLocation } from 'react-router-dom'
 import Opener from './pages/Opener'
 import Home from './pages/Home'
 import Venue from './pages/Venue'
@@ -7,28 +6,32 @@ import Events from './pages/Events'
 import Travel from './pages/Travel'
 import QA from './pages/QA'
 import Accommodation from './pages/Accommodation'
-import RSVPPage from './pages/RSVP'
 import Gifts from './pages/Gifts'
 
 const NAV_LINKS = [
-  { to: '/', label: 'Home', end: true },
-  { to: '/venue', label: 'Venue' },
-  { to: '/events', label: 'Events' },
-  { to: '/travel', label: 'Travel' },
-  { to: '/qa', label: 'Q&A' },
-  { to: '/accommodation', label: 'Accommodation' },
+  { id: 'home', label: 'Home' },
+  { id: 'venue', label: 'Venue' },
+  { id: 'events', label: 'Events' },
+  { id: 'travel', label: 'Travel' },
+  { id: 'qa', label: 'Q&A' },
+  { id: 'accommodation', label: 'Accommodation' },
   { href: 'https://withjoy.com/BeMyBebawy/rsvp', label: 'RSVP' },
-  { to: '/gifts', label: 'Gifts' },
+  { id: 'gifts', label: 'Gifts' },
 ]
 
 export default function App() {
   const [unlocked, setUnlocked] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
-  const location = useLocation()
 
   if (!unlocked) return <Opener onUnlock={() => setUnlocked(true)} />
 
   function closeMenu() { setMenuOpen(false) }
+
+  function scrollToSection(sectionId) {
+    const target = document.getElementById(sectionId)
+    if (!target) return
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
 
   return (
     <>
@@ -44,7 +47,16 @@ export default function App() {
             l.href ? (
               <a key={l.label} href={l.href} target="_blank" rel="noopener noreferrer">{l.label}</a>
             ) : (
-              <NavLink key={l.to} to={l.to} end={l.end}>{l.label}</NavLink>
+              <a
+                key={l.id}
+                href={`#${l.id}`}
+                onClick={e => {
+                  e.preventDefault()
+                  scrollToSection(l.id)
+                }}
+              >
+                {l.label}
+              </a>
             )
           ))}
         </div>
@@ -63,21 +75,44 @@ export default function App() {
           l.href ? (
             <a key={l.label} href={l.href} target="_blank" rel="noopener noreferrer" onClick={closeMenu}>{l.label}</a>
           ) : (
-            <NavLink key={l.to} to={l.to} end={l.end} onClick={closeMenu}>{l.label}</NavLink>
+            <a
+              key={l.id}
+              href={`#${l.id}`}
+              onClick={e => {
+                e.preventDefault()
+                closeMenu()
+                scrollToSection(l.id)
+              }}
+            >
+              {l.label}
+            </a>
           )
         ))}
       </div>
 
-      <Routes location={location}>
-        <Route path="/" element={<Home />} />
-        <Route path="/venue" element={<Venue />} />
-        <Route path="/events" element={<Events />} />
-        <Route path="/travel" element={<Travel />} />
-        <Route path="/qa" element={<QA />} />
-        <Route path="/accommodation" element={<Accommodation />} />
-        <Route path="/rsvp" element={<RSVPPage />} />
-        <Route path="/gifts" element={<Gifts />} />
-      </Routes>
+      <main>
+        <section id="home" style={{ scrollMarginTop: 90 }}>
+          <Home />
+        </section>
+        <section id="venue" style={{ scrollMarginTop: 90 }}>
+          <Venue />
+        </section>
+        <section id="events" style={{ scrollMarginTop: 90 }}>
+          <Events />
+        </section>
+        <section id="travel" style={{ scrollMarginTop: 90 }}>
+          <Travel />
+        </section>
+        <section id="qa" style={{ scrollMarginTop: 90 }}>
+          <QA />
+        </section>
+        <section id="accommodation" style={{ scrollMarginTop: 90 }}>
+          <Accommodation />
+        </section>
+        <section id="gifts" style={{ scrollMarginTop: 90 }}>
+          <Gifts />
+        </section>
+      </main>
     </>
   )
 }

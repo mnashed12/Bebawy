@@ -142,16 +142,53 @@ function AirportCard({ code, name, body, recommended }) {
 function TipCard({ icon, title, body }) {
   return (
     <div style={{
-      background: 'white',
-      border: '1px solid var(--gold-light)',
-      display: 'flex', flexDirection: 'column', alignItems: 'center',
-      justifyContent: 'center', textAlign: 'center',
-      gap: 12, padding: '16px',
-      aspectRatio: '1 / 1',
+      position: 'relative',
+      background: 'linear-gradient(180deg, #ffffff 0%, #fbf8f3 100%)',
+      border: '1px solid rgba(200, 169, 110, 0.34)',
+      boxShadow: '0 10px 30px rgba(43, 31, 31, 0.06)',
+      display: 'flex', flexDirection: 'column',
+      justifyContent: 'space-between',
+      textAlign: 'left',
+      gap: 16,
+      padding: '28px 24px 24px',
+      minHeight: 260,
+      transition: 'transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease',
     }}>
-      <span style={{ fontSize: 30 }}>{icon}</span>
-      <h3 style={{ fontSize: 20, fontWeight: 400 }}>{title}</h3>
-      <p style={{ fontSize: 12, lineHeight: 1.8, color: 'var(--text-muted)' }}>{body}</p>
+      <div style={{ height: 3, width: 52, background: 'var(--gold)', opacity: 0.8 }} />
+
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+        {icon ? (
+          <div style={{
+            width: 44, height: 44, borderRadius: '50%',
+            display: 'grid', placeItems: 'center',
+            background: 'rgba(107, 31, 42, 0.08)',
+            color: 'var(--burgundy)',
+            fontSize: 22,
+          }}>{icon}</div>
+        ) : (
+          <div style={{ fontSize: 9, letterSpacing: '0.26em', textTransform: 'uppercase', color: 'var(--gold)' }}>
+            Porto Guide
+          </div>
+        )}
+
+        <h3 style={{
+          fontSize: 'clamp(20px, 2.2vw, 24px)',
+          fontWeight: 400,
+          lineHeight: 1.2,
+          color: 'var(--text-dark)'
+        }}>{title}</h3>
+
+        <p style={{
+          fontSize: 13,
+          lineHeight: 1.85,
+          color: 'var(--text-muted)',
+          margin: 0,
+        }}>{body}</p>
+      </div>
+
+      <div style={{ fontSize: 10, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--burgundy)', opacity: 0.9 }}>
+        Recommended
+      </div>
     </div>
   )
 }

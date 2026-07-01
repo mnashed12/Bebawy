@@ -14,11 +14,11 @@ export default function Gifts() {
       </section>
 
       {/* Proposal photo */}
-      <section style={{ width: '100%', maxHeight: 560, overflow: 'hidden', position: 'relative' }}>
+      <section style={{ width: '100%', overflow: 'hidden', position: 'relative', background: '#efe9df' }}>
         <img
           src="/media/proposal_1.jpeg"
           alt="The proposal"
-          style={{ width: '100%', height: 560, objectFit: 'cover', objectPosition: 'center 30%', display: 'block' }}
+          style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'contain', objectPosition: 'center' }}
         />
         <div style={{
           position: 'absolute', inset: 0,

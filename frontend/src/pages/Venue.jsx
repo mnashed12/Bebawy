@@ -5,11 +5,11 @@ export default function Venue() {
     <main style={{ paddingTop: 60 }}>
 
       {/* Full-width hero image */}
-      <div style={{ width: '100%', height: 'clamp(320px, 55vw, 620px)', overflow: 'hidden', position: 'relative' }}>
+      <div style={{ width: '100%', overflow: 'hidden', position: 'relative', background: '#efe9df' }}>
         <img
           src="/media/venue_bg.png"
           alt="Quinta do Alferes de Crasto"
-          style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }}
+          style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'contain', objectPosition: 'center' }}
         />
         <div style={{
           position: 'absolute', inset: 0,

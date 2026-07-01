@@ -81,11 +81,11 @@ function EventBlock({ number, tag, title, description, details, rsvpNote, image,
   return (
     <div className="event-block-grid" style={{ direction: reverse ? 'rtl' : 'ltr' }}>
       {/* Image */}
-      <div className="event-image" style={{ height: 340, overflow: 'hidden', direction: 'ltr' }}>
+      <div className="event-image" style={{ direction: 'ltr' }}>
         <img
           src={image}
           alt={title}
-          style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', transition: 'transform 0.6s ease' }}
+          style={{ width: '100%', height: 'auto', objectFit: 'contain', objectPosition: 'center', display: 'block', transition: 'transform 0.6s ease', background: '#f7f2ea' }}
           onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.04)'}
           onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
         />

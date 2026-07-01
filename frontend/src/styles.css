@@ -218,6 +218,17 @@ h1, h2, h3, h4 {
     float: none;
     width: 100%;
     margin: 0 0 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.10);
+    background: var(--warm-white);
+  }
+
+  .story-img-left img,
+  .story-img-right img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
+    display: block;
   }
 }
 
@@ -227,6 +238,22 @@ h1, h2, h3, h4 {
   grid-template-columns: 1fr 1fr;
   gap: 50px;
   align-items: center;
+}
+
+.event-image {
+  width: 100%;
+  height: auto !important;
+  overflow: visible !important;
+  display: block;
+}
+
+.event-image img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  background: #f7f2ea;
 }
 
 /* Venue info cards */
@@ -322,7 +349,6 @@ h1, h2, h3, h4 {
   .nav a { font-size: 10px; letter-spacing: 0.12em; }
 
   .event-block-grid { grid-template-columns: 1fr !important; gap: 28px; direction: ltr !important; }
-  .event-image { height: 300px !important; }
   .our-story-grid { grid-template-columns: 1fr; }
   .portugal-flex { gap: 32px; }
 }
@@ -346,8 +372,6 @@ h1, h2, h3, h4 {
 
   .portugal-flex { flex-direction: column; gap: 20px; }
   .portugal-flex > * { width: 100% !important; flex: none !important; }
-
-  .event-image { height: 220px !important; }
 
   /* Countdown */
   .countdown-row { gap: 10px; }

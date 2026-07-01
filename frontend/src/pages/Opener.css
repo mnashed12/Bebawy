@@ -56,40 +56,49 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
 }
 
 .envelope-password input {
   width: 100%;
-  padding: 10px 14px;
-  border: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
-  background: transparent;
+  padding: 11px 14px;
+  border: 1px solid rgba(107, 31, 42, 0.22);
+  border-radius: 999px;
+  background: rgba(255, 250, 244, 0.72);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   font-family: 'Montserrat', sans-serif;
-  font-size: 10px;
-  letter-spacing: 0.2em;
+  font-size: 11px;
+  letter-spacing: 0.24em;
   text-align: center;
   outline: none;
   color: #4a3a2a;
-  transition: border-color 0.2s;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
 }
 .envelope-password input:focus {
-  border-color: rgba(160,130,90,0.9);
+  border-color: rgba(107, 31, 42, 0.55);
+  background: rgba(255, 252, 248, 0.92);
+  box-shadow: 0 8px 22px rgba(107, 31, 42, 0.12);
+  transform: translateY(-1px);
 }
 .envelope-password input::placeholder {
-  color: rgba(0, 0, 0);
-  font-size: 14px;
-  letter-spacing: 0.22em;
+  color: rgba(74, 58, 42, 0.5);
+  font-size: 10px;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
 }
 
 .pw-error {
   font-family: 'Montserrat', sans-serif;
-  font-size: 9px;
-  color: #6b1f2a;
-  letter-spacing: 0.1em;
+  font-size: 10px;
+  color: #8a2432;
+  letter-spacing: 0.12em;
   margin: 0;
   text-align: center;
+  background: rgba(255,255,255,0.55);
+  padding: 4px 10px;
+  border-radius: 999px;
 }
 
 /* ═══════════════════════════════════
@@ -229,7 +238,9 @@
     #b0aca4 85%,
     rgba(176,172,164,0) 100%
   );
-  transition: transform 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(0%);
+  transition: none;
+  animation: shadeIdle 12s linear infinite;
   transform-origin: top center;
 }
 
@@ -250,20 +261,21 @@
 
 /* Pull-tab at the bottom edge of the shade */
 .window-shade::after {
-  content: '';
-  position: absolute;
-  bottom: -6px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 36px;
-  height: 12px;
-  border-radius: 0 0 8px 8px;
-  background: linear-gradient(180deg, #c8c4bc 0%, #a8a49c 100%);
-  box-shadow: 0 3px 6px rgba(0,0,0,0.30), inset 0 1px 2px rgba(255,255,255,0.4);
+  content: none;
 }
 
 .plane-window-frame.open .window-shade {
-  transform: translateY(-100%);
+  animation: shadeSlideOpen 9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes shadeIdle {
+  0%, 100% { transform: translateY(0%); }
+  50% { transform: translateY(0.5%); }
+}
+
+@keyframes shadeSlideOpen {
+  0% { transform: translateY(0%); }
+  100% { transform: translateY(-104%); }
 }
 
 .cherub-overlay {
