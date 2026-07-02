@@ -231,7 +231,6 @@ export default function Opener({ onUnlock }) {
                 </div>
                 <img src="/media/couple_disney.png" alt="Carolyn and Marco" className="plane-window-video" />
                 <div className="window-shade" />
-                <div className="cherub-overlay"><p className="cherub-text">The Digital Yes</p></div>
               </div>
             </div>
           </div>
