@@ -20,64 +20,102 @@ export default function Events() {
       {/* Events */}
       <section style={{ maxWidth: 1200, margin: '0 auto', padding: '60px 40px' }}>
 
-        {/* Welcome Dinner */}
+        {/* Douro Valley Day Trip */}
         <EventBlock
           number="01"
+          tag="Thursday, May 13th 2027"
+          title="Douro Valley Vineyards Day Trip"
+          description="A trip to Porto is not complete without seeing the Douro Valley. It is the world's oldest wine region and a UNESCO World Heritage Site. We are hosting an optional private group tour to two local boutique wineries. The day includes a tour of the vineyards, 11 wine tastings, a farm-to-table gourmet lunch, and a private boat tour on the Douro River for approximately EUR 95 per person."
+          details={[
+            { label: 'Date', value: 'Thursday, May 13th, 2027' },
+            { label: 'Duration', value: 'Approximately 10 hours (full-day tour)' },
+            { label: 'Transportation', value: 'Round-trip transportation included' },
+            { label: 'Note', value: 'If you would like to attend, please RSVP below. We will reach out with additional details.' },
+          ]}
+          rsvpNote={<a href="https://docs.google.com/forms/d/e/1FAIpQLScojRljCu3vwIZvTmZRs7Nn8mK0YJJsjz4C3dUo9-E9Go-IRA/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--burgundy)', textDecoration: 'underline' }}>RSVP for the day trip</a>}
+          image="/media/valley.jpg"
+          reverse
+        />
+
+        <div className="divider" style={{ margin: '60px auto' }} />
+
+        {/* Welcome Dinner */}
+        <EventBlock
+          number="02"
           tag="Friday, May 14th 2027"
           title="Welcome Dinner"
-          description="Join us for an intimate welcome dinner to kick off the celebrations. We can't wait to see you in Portugal."
+          description="Ease into the weekend with cocktails, great food, and even better company -  enjoy golden hour, flowing wine, and the start of something unforgettable with us!"
           details={[
             { label: 'Date', value: 'Friday, May 14th, 2027' },
             { label: 'Location', value: 'TBD — Details to follow' },
             { label: 'Time', value: 'TBD' },
           ]}
           rsvpNote={<a href="https://withjoy.com/BeMyBebawy/rsvp" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--burgundy)', textDecoration: 'underline' }}>RSVP here</a>}
-          image="/media/front_1.jpeg"
+          image="/media/oceanchairs.png"
         />
 
-        <div className="divider" style={{ margin: '60px auto' }} />
+      </section>
 
-        {/* Day Before */}
-        <EventBlock
-          number="02"
-          tag="Saturday, May 15th 2027"
-          title="Suggested Activities"
-          description="Consider this our little guide to Portugal. From slow mornings and unforgettable dinners to scenic viewpoints and hidden gems, we've gathered a few of our favorite recommendations to help you make the most of your visit. We hope you love exploring it as much as we do."
-          details={[
-            { label: 'Date', value: 'Saturday, May 15th, 2027' },
-            { label: 'Activities', value: 'Guided suggestions in Porto' },
-          ]}
-          rsvpNote={<a href="https://maps.app.goo.gl/XnMWjJtQYw34HmMAA" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--burgundy)', textDecoration: 'underline' }}>Open activity guide</a>}
-          image="/media/front_2.jpeg"
-          reverse
-        />
-
-        <div className="divider" style={{ margin: '60px auto' }} />
+      <section style={{ maxWidth: 1200, margin: '0 auto', padding: '60px 40px' }}>
+        <div style={{ textAlign: 'center', marginBottom: 40 }}>
+          <p className="section-label">Join us</p>
+          <h1 style={{ fontSize: 'clamp(32px,6vw,56px)', fontWeight: 300 }}>Wedding Day Timeline</h1>
+          <div className="divider" />
+        </div>
 
         {/* Wedding Day */}
         <EventBlock
           number="03"
           tag="Sunday, May 16th 2027"
           title="Wedding Day"
-          description="The big day is here. From shuttles to the last dance, we can't wait to celebrate every moment with you at Quinta do Alferes de Crasto."
+          description="The big day is finally here! From shuttles to the last dance, we can't wait to celebrate every moment with you!"
           details={[
             { label: 'Date', value: 'Sunday, May 16th, 2027' },
             { label: 'Venue', value: 'Quinta do Alferes de Crasto, Vairão, Portugal' },
-            { label: 'Wedding Day Shuttle Buses', time: '03:00 PM - 03:30 PM', text: 'Shuttle buses will depart from Lapa Church and head straight to the wedding venue. Don\'t be late!' },
-            { label: 'Wedding Ceremony', time: '04:15 PM - 05:30 PM', text: 'Grab a seat - it\'s finally happening. We\'re tying the knot! Please arrive no later than 4:15 PM.' },
+            {
+              label: 'Wedding Day Shuttle Buses',
+              time: '03:00 PM - 03:30 PM',
+              text: 'Shuttle buses will depart from Lapa Church and head straight to the wedding venue. Don\'t be late!',
+              mapLink: 'https://maps.google.com/?q=Igreja+da+Lapa,+Porto',
+              mapPreview: '/media/googlemaps.png',
+            },
+            { label: 'Wedding Ceremony', time: '04:30 PM - 05:30 PM', text: 'Grab a seat - it\'s finally happening. We\'re tying the knot! Please arrive no later than 4:15 PM.' },
             { label: 'Cocktail Hour', time: '05:30 PM - 07:30 PM', text: 'Because every great celebration deserves a Hugo Spritz break.' },
-            { label: 'Wedding Reception', time: '07:30 PM - 3:00 AM', text: 'An evening of incredible food, overflowing dance floors, and one very happy couple until the sunrise (literally - we have the venue until 4:00 AM).' },
+            { label: 'Wedding Reception', time: '07:30 PM - 3:00 AM', text: 'An evening of incredible food, overflowing dance floors, and one very happy couple until the sunrise. Enjoy the reception and dance the night away, then kick back on the shuttles going back to the Lapa Church area starting at 11PM. Shuttles will run every hour.' },
           ]}
           rsvpNote={<a href="https://withjoy.com/BeMyBebawy/rsvp" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--burgundy)', textDecoration: 'underline' }}>RSVP here</a>}
-          image="/media/front_3.jpeg"
+          image="/media/venue_bg.png"
+          secondaryImage="/media/googlemaps2.png"
+          reverse
         />
 
+      </section>
+
+      <section style={{
+        textAlign: 'center',
+        padding: 'clamp(56px,8vw,76px) clamp(16px,5vw,40px) 48px',
+        background: 'linear-gradient(to bottom, var(--warm-white), var(--cream))'
+      }}>
+        <p className="section-label">Join us</p>
+        <h1 style={{ fontSize: 'clamp(32px,6vw,56px)', fontWeight: 300 }}>Post-Wedding Pool Day</h1>
+        <div className="divider" />
+        <p style={{ maxWidth: 760, margin: '0 auto', lineHeight: 1.95, color: 'var(--text-muted)', fontSize: 15 }}>
+          If you're staying an extra day, join us by the pool at the [Location TBD]! More details coming soon.
+        </p>
+      </section>
+
+      <section style={{
+        padding: '20px 40px 80px', maxWidth: 860, margin: '0 auto', textAlign: 'center'
+      }}>
+        <a href="https://withjoy.com/BeMyBebawy/rsvp" target="_blank" rel="noopener noreferrer" className="btn" style={{ marginTop: 8 }}>
+          RSVP Now
+        </a>
       </section>
     </main>
   )
 }
 
-function EventBlock({ number, tag, title, description, details, rsvpNote, image, reverse }) {
+function EventBlock({ number, tag, title, description, details, rsvpNote, image, secondaryImage, reverse }) {
   return (
     <div className="event-block-grid" style={{ direction: reverse ? 'rtl' : 'ltr' }}>
       {/* Image */}
@@ -89,6 +127,24 @@ function EventBlock({ number, tag, title, description, details, rsvpNote, image,
           onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.04)'}
           onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
         />
+        {secondaryImage && (
+          <details style={{ marginTop: 14 }}>
+            <summary style={{
+              cursor: 'pointer',
+              fontSize: 11,
+              letterSpacing: '0.14em',
+              textTransform: 'uppercase',
+              color: 'var(--burgundy)',
+            }}>
+              View Map Preview
+            </summary>
+            <img
+              src={secondaryImage}
+              alt={`${title} map preview`}
+              style={{ width: '100%', height: 'auto', objectFit: 'contain', objectPosition: 'center', display: 'block', marginTop: 10 }}
+            />
+          </details>
+        )}
       </div>
 
       {/* Text */}
@@ -110,6 +166,37 @@ function EventBlock({ number, tag, title, description, details, rsvpNote, image,
               <p style={{ margin: '4px 0 0', fontSize: 13, color: 'var(--text-muted)', lineHeight: 1.8 }}>
                 {d.text}
               </p>
+              {d.mapLink && d.mapPreview && (
+                <details style={{ marginTop: 10 }}>
+                  <summary style={{
+                    cursor: 'pointer',
+                    fontSize: 11,
+                    letterSpacing: '0.14em',
+                    textTransform: 'uppercase',
+                    color: 'var(--burgundy)',
+                  }}>
+                    View Lapa Church Map
+                  </summary>
+                  <a
+                    href={d.mapLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ display: 'block', width: 'fit-content', margin: '10px auto 0' }}
+                  >
+                    <img
+                      src={d.mapPreview}
+                      alt="Open Lapa Church in Google Maps"
+                      style={{
+                        width: 'min(260px, 100%)',
+                        height: 'auto',
+                        display: 'block',
+                        border: '1px solid var(--gold-light)',
+                        borderRadius: 6,
+                      }}
+                    />
+                  </a>
+                </details>
+              )}
             </div>
           ) : (
             <p key={d.label} style={{ fontSize: 13, color: 'var(--text-muted)', marginBottom: 6 }}>

@@ -60,6 +60,28 @@ export default function Travel() {
         </div>{/* end portugal-flex */}
       </section>
 
+      {/* Suggested Activities */}
+      <section style={{ maxWidth: 1200, margin: '0 auto', padding: '0 40px 70px' }}>
+        <div className="event-block-grid">
+          <div className="event-image">
+            <img
+              src="/media/buildings.png"
+              alt="Suggested activities in Porto"
+              style={{ width: '100%', height: 'auto', objectFit: 'contain', objectPosition: 'center', display: 'block', background: '#f7f2ea' }}
+            />
+          </div>
+          <div>
+            <h2 style={{ fontSize: 'clamp(24px,4vw,38px)', fontWeight: 300, marginBottom: 16 }}>Suggested Activities</h2>
+            <p style={{ lineHeight: 1.9, color: 'var(--text-muted)', fontSize: 14, marginBottom: 18 }}>
+              Consider this our little guide to Portugal. From slow mornings and unforgettable dinners to scenic viewpoints and hidden gems, we've gathered a few of our favorite recommendations to help you make the most of your visit. We hope you love exploring it as much as we do.
+            </p>
+            <a href="https://maps.app.goo.gl/XnMWjJtQYw34HmMAA" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--burgundy)', textDecoration: 'underline', fontSize: 12, letterSpacing: '0.12em', textTransform: 'uppercase' }}>
+              Open activity guide
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Getting around */}
       <section style={{
         background: 'var(--cream)', padding: '70px 40px'
@@ -80,27 +102,6 @@ export default function Travel() {
               title="Car Rental"
               body="We do not suggest renting a car in Porto city centre — streets can be quite narrow and congested, and parking is difficult."
             />
-            <TipCard
-              title="Wedding Transport"
-              body="Shuttle service details are confirmed below."
-            />
-          </div>
-
-          <div style={{
-            marginTop: 34,
-            textAlign: 'left',
-            background: 'white',
-            border: '1px solid var(--gold-light)',
-            borderLeft: '4px solid var(--burgundy)',
-            padding: '22px 24px'
-          }}>
-            <p className="section-label" style={{ marginBottom: 10 }}>Wedding Shuttle Service</p>
-            <p style={{ lineHeight: 1.9, color: 'var(--text-muted)', fontSize: 14, marginBottom: 12 }}>
-              We will be providing shuttle buses that will depart from Lapa Church and head straight to the wedding venue starting at 3PM. Don’t be late!
-            </p>
-            <p style={{ lineHeight: 1.9, color: 'var(--text-muted)', fontSize: 14, margin: 0 }}>
-              Enjoy the reception and dance the night away, then kick back on the shuttles going back to the Lapa Church area starting at 11PM. Shuttles will run every hour.
-            </p>
           </div>
 
           <p style={{ marginTop: 22, fontSize: 14, color: 'var(--text-muted)', textAlign: 'center' }}>

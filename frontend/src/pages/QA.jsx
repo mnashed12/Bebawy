@@ -9,11 +9,11 @@ const FAQS = [
   {
     question: 'What is the dress code?',
     answer:
-      "Our celebration calls for Black Tie Optional attire inspired by the effortless elegance of Portugal. Picture flowing gowns, impeccably tailored suits, polished shoes, and classic accessories. Think Old Money, Quiet Luxury, and European Summer. We encourage timeless styles over trends for an evening that feels both sophisticated and celebratory. Leave the stilettos at home though! The wedding venue has a mix of grass, pavers, and cobblestones, so go for block or martini heels instead. We don't want anyone ruining their shoes or twisting an ankle. We can't wait to celebrate in style with all of you!",
+      "Our celebration calls for Black Tie attire inspired by the effortless elegance of Portugal. Picture flowing gowns, impeccably tailored suits, polished shoes, and classic accessories. Think Old Money, Quiet Luxury, and European Summer. We encourage timeless styles over trends for an evening that feels both sophisticated and celebratory. Leave the stilettos at home though! The wedding venue has a mix of grass, pavers, and cobblestones, so go for block or martini heels instead. We don't want anyone ruining their shoes or twisting an ankle. We can't wait to celebrate in style with all of you!",
   },
   {
     question: "What's the RSVP deadline?",
-    answer: 'Please RSVP by February 15 so we can get an accurate headcount. :)',
+    answer: 'Please RSVP by February 1st so we can get an accurate headcount. :)',
   },
   {
     question: 'Can I bring a date?',
@@ -29,7 +29,7 @@ const FAQS = [
 
 export default function QA() {
   return (
-    <main style={{ paddingTop: 80 }}>
+    <main>
       <section
         style={{
           textAlign: 'center',

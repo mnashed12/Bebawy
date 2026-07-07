@@ -59,8 +59,16 @@
   gap: 6px;
 }
 
-.envelope-password input {
+.envelope-password-row {
   width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.envelope-password input {
+  flex: 1;
+  min-width: 0;
   padding: 11px 14px;
   border: 1px solid rgba(107, 31, 42, 0.22);
   border-radius: 999px;
@@ -89,6 +97,39 @@
   text-transform: uppercase;
 }
 
+.envelope-enter-btn {
+  border: 1px solid rgba(107, 31, 42, 0.5);
+  border-radius: 999px;
+  background: rgba(255, 252, 248, 0.92);
+  color: #6b1f2a;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 11px 16px;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 6px 16px rgba(107, 31, 42, 0.1);
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.envelope-enter-btn:hover {
+  background: #6b1f2a;
+  color: #fff;
+  border-color: #6b1f2a;
+}
+
+.envelope-enter-btn:focus-visible {
+  outline: 2px solid rgba(107, 31, 42, 0.4);
+  outline-offset: 2px;
+}
+
+.envelope-enter-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 3px 10px rgba(107, 31, 42, 0.14);
+}
+
 .pw-error {
   font-family: 'Montserrat', sans-serif;
   font-size: 10px;
@@ -99,6 +140,17 @@
   background: rgba(255,255,255,0.55);
   padding: 4px 10px;
   border-radius: 999px;
+}
+
+@media (max-width: 420px) {
+  .envelope-password-row {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .envelope-enter-btn {
+    width: 100%;
+  }
 }
 
 /* ═══════════════════════════════════

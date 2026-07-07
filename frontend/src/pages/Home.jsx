@@ -121,7 +121,7 @@ export default function Home() {
 
             {/* Left-floated image */}
             <div className="story-img-left">
-              <img src="/media/front_3.jpeg" alt="Carolyn and Marco" />
+              <img src="/media/front_2.jpeg" alt="Carolyn and Marco" />
             </div>
 
             <p>Some people say we're all connected by six degrees of separation—that every stranger is only a handful of introductions away from becoming someone who changes your life. Looking back, it almost feels as though our story was quietly writing itself long before we ever realized we were meant to read the same chapter.</p>
@@ -133,7 +133,7 @@ export default function Home() {
               <img src="/media/proposal_1.jpeg" alt="The proposal" />
             </div>
 
-            <p>From our very first date, it felt less like meeting someone new and more like finding someone we'd somehow known all along. As the conversation unfolded, so did an almost unbelievable series of connections. We discovered our childhood homes in Flushing were only a few blocks apart. We grew up visiting the same neighborhood staples—the retro Burger King in Douglaston, Tuesday movie nights with $5 tickets, and so many of the places that shaped our childhoods without us ever meeting. There were even more remarkable threads. Carolyn worked at a CVS that ordered pizza almost every day from the Italian restaurant where Marco delivered pies during college. Years later, Marco unknowingly attended Carolyn's graduation from St. John's University because his sister, Christine, graduated from pharmacy school together.</p>
+            <p>From our very first date, it felt less like meeting someone new and more like finding someone we'd somehow known all along. As the conversation unfolded, so did an almost unbelievable series of connections. We discovered our childhood homes in Flushing were only a few blocks apart. We grew up visiting the same neighborhood staples—the retro Burger King in Douglaston, Tuesday movie nights with $5 tickets, and so many of the places that shaped our childhoods without us ever meeting. There were even more remarkable threads. Carolyn worked at a CVS that ordered pizza almost every day from the Italian restaurant where Marco delivered pies during college. Years later, Marco unknowingly attended Carolyn's graduation from St. John's University because his sister, Christine, graduated from pharmacy school with her.</p>
             <p>The more we talked, the more it felt like our lives had been gently orbiting one another for years—close enough to leave fingerprints on each other's stories, but waiting for the right moment to finally collide. We met in our late 20s, not because we were late, but because we were ready. We had dreams that demanded long hours, unwavering faith, and a partner who wouldn't just celebrate the destination, but understand the journey. In each other, we found someone who believed in those dreams as deeply as their own—a best friend, a safe place, and the kind of love that makes life's biggest ambitions feel possible.</p>
             <p>Five years later, we're standing here, surrounded by the people who helped shape us into who we are. We couldn't be more grateful that every unexpected detour, every near miss, and every "almost" led us to this moment.</p>
             <p className="story-closing">Thank you for being part of the next chapter of our story. We can't wait to celebrate with you!</p>
@@ -144,20 +144,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Brief intro */}
-      <section style={{
-        padding: '80px 40px', maxWidth: 860, margin: '0 auto', textAlign: 'center'
-      }}>
-        <p className="section-label">See you in Portugal!</p>
-        <h2 style={{ fontSize: 'clamp(24px,4vw,38px)', fontWeight: 300, marginBottom: 24 }}>We're getting married</h2>
-        <p style={{ lineHeight: 1.9, color: 'var(--text-muted)', fontSize: 15 }}>
-          We kindly ask for your responses to <strong>all</strong> events by{' '}
-          <em>February 1st, 2027</em>. Group transportation to the wedding venue will be
-          provided — departure details and pick-up location to follow.
-        </p>
-        <div className="divider" />
-        <a href="https://withjoy.com/BeMyBebawy/rsvp" target="_blank" rel="noopener noreferrer" className="btn" style={{ marginTop: 8 }}>RSVP Now</a>
-      </section>
     </main>
   )
 }

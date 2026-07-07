@@ -203,13 +203,16 @@ export default function Opener({ onUnlock }) {
           <div className="envelope-wrap">
             <img src="/media/envelope.png" alt="" className="envelope-img" draggable={false} />
             <form className="envelope-password" onSubmit={handlePassword}>
-              <input
-                type="password"
-                placeholder="invitation code"
-                value={password}
-                onChange={e => setPassword(e.target.value)}
-                autoComplete="off"
-              />
+              <div className="envelope-password-row">
+                <input
+                  type="password"
+                  placeholder="invitation code"
+                  value={password}
+                  onChange={e => setPassword(e.target.value)}
+                  autoComplete="off"
+                />
+                <button type="submit" className="envelope-enter-btn">Enter</button>
+              </div>
               {error && <p className="pw-error">Incorrect — please try again</p>}
             </form>
           </div>
@@ -219,7 +222,7 @@ export default function Opener({ onUnlock }) {
       {/* Plane Window */}
       {(stage === 'plane-closed' || stage === 'plane-open') && (
         <div className="plane-scene fade-in">
-          <p className="opener-hint">Look out the window…</p>
+          <p className="opener-hint">Grab Your Passports...</p>
           <div className="plane-window-outer">
             <div className={`plane-window-frame${stage === 'plane-open' ? ' open' : ''}`}>
               <div className="plane-window-inner">

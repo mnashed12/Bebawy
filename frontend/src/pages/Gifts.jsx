@@ -23,8 +23,8 @@ export default function Gifts() {
         }}>
           <div>
             <img
-              src="/media/proposal_1.jpeg"
-              alt="The proposal"
+              src="/media/gifts.png"
+              alt="Carolyn and Marco"
               style={{ width: '100%', height: 'auto', objectFit: 'contain', objectPosition: 'center', display: 'block' }}
             />
             <p style={{
@@ -42,7 +42,7 @@ export default function Gifts() {
               fontFamily: 'Cormorant Garamond, serif', fontSize: 28, fontStyle: 'italic',
               lineHeight: 1.7, color: 'var(--text-dark)', marginBottom: 40
             }}>
-              "Your presence at our wedding is a gift enough for us."
+              "Having our favorite people together to celebrate this chapter is more than we could ever wish for."
             </p>
             <div className="divider" />
             <p style={{ lineHeight: 2, color: 'var(--text-muted)', fontSize: 15, marginTop: 40, marginBottom: 50 }}>

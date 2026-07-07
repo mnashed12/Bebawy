@@ -13,8 +13,8 @@ const NAV_LINKS = [
   { id: 'venue', label: 'Venue' },
   { id: 'events', label: 'Events' },
   { id: 'travel', label: 'Travel' },
-  { id: 'qa', label: 'Q&A' },
   { id: 'accommodation', label: 'Accommodation' },
+  { id: 'qa', label: 'Q&A' },
   { href: 'https://withjoy.com/BeMyBebawy/rsvp', label: 'RSVP' },
   { id: 'gifts', label: 'Gifts' },
 ]
@@ -103,11 +103,11 @@ export default function App() {
         <section id="travel" style={{ scrollMarginTop: 90 }}>
           <Travel />
         </section>
-        <section id="qa" style={{ scrollMarginTop: 90 }}>
-          <QA />
-        </section>
         <section id="accommodation" style={{ scrollMarginTop: 90 }}>
           <Accommodation />
+        </section>
+        <section id="qa" style={{ scrollMarginTop: 90 }}>
+          <QA />
         </section>
         <section id="gifts" style={{ scrollMarginTop: 90 }}>
           <Gifts />

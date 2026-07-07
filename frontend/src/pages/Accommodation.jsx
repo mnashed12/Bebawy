@@ -23,17 +23,10 @@ const HOTELS = [
     tier: 'Boutique',
   },
   {
-    name: 'Hotel Cristal Porto',
-    url: 'https://www.hoteiscristal.pt/en/cristal-porto/',
-    image: '/media/hotel_cristal.png',
-    description: 'Stylish design hotel with a lush garden terrace and a prime city centre location.',
-    tier: 'Mid-range',
-  },
-  {
-    name: 'The Rex Hotel',
-    url: 'https://www.therexhotel.pt/en/',
-    image: '/media/rex_hotel.png',
-    description: 'An Art Deco gem in Porto\'s historic Bolhão quarter, full of character and charm.',
+    name: 'The Social Hub Porto',
+    url: 'https://www.thesocialhub.co/porto/',
+    image: '/media/socialclub.png',
+    description: 'A stylish modern stay with a lively social atmosphere, flexible spaces, and a convenient Porto location.',
     tier: 'Mid-range',
   },
   {
@@ -81,16 +74,28 @@ export default function Accommodation() {
           ))}
         </div>
 
-        <div style={{
-          marginTop: 70, padding: '40px', background: 'var(--cream)',
-          border: '1px solid var(--gold-light)', textAlign: 'center'
-        }}>
-          <p className="section-label">A Note from Us</p>
-          <p style={{ maxWidth: 560, margin: '0 auto', lineHeight: 2, color: 'var(--text-muted)', fontSize: 15 }}>
-            Porto is a beautiful, walkable city. We recommend staying somewhere central
-            so you can explore on foot. We do not suggest renting a car in the city — streets
-            can be narrow and parking is difficult. Taxis and Ubers are readily available and affordable.
-          </p>
+        <div style={{ textAlign: 'center', marginTop: 42 }}>
+          <details style={{ display: 'inline-block', textAlign: 'center' }}>
+            <summary style={{
+              cursor: 'pointer',
+              fontSize: 11,
+              letterSpacing: '0.14em',
+              textTransform: 'uppercase',
+              color: 'var(--burgundy)',
+            }}>
+              View Hotel Map
+            </summary>
+            <img
+              src="/media/hotelmap.png"
+              alt="Accommodation map"
+              style={{
+                width: 'min(820px, 92vw)',
+                height: 'auto',
+                display: 'block',
+                margin: '14px auto 0',
+              }}
+            />
+          </details>
         </div>
       </section>
     </main>
