@@ -121,7 +121,7 @@ export default function Home() {
 
             {/* Left-floated image */}
             <div className="story-img-left">
-              <img src="/media/front_2.jpeg" alt="Carolyn and Marco" />
+              <img src="/media/couple_disney.png" alt="Carolyn and Marco" />
             </div>
 
             <p>Some people say we're all connected by six degrees of separation—that every stranger is only a handful of introductions away from becoming someone who changes your life. Looking back, it almost feels as though our story was quietly writing itself long before we ever realized we were meant to read the same chapter.</p>
