@@ -47,7 +47,7 @@ const TIER_COLORS = {
 
 export default function Accommodation() {
   return (
-    <main style={{ paddingTop: 80 }}>
+    <main>
       {/* Header */}
       <section style={{
         textAlign: 'center', padding: 'clamp(60px,8vw,80px) clamp(16px,5vw,40px) 60px',

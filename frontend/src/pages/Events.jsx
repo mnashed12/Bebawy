@@ -5,7 +5,7 @@ export default function Events() {
     <main style={{ paddingTop: 80 }}>
       {/* Header */}
       <section style={{
-        textAlign: 'center', padding: 'clamp(60px,8vw,80px) clamp(16px,5vw,40px) 40px',
+        textAlign: 'center', padding: 'clamp(56px,7vw,72px) clamp(16px,5vw,40px) 32px',
         background: 'linear-gradient(to bottom, var(--cream), var(--warm-white))'
       }}>
         <p className="section-label">Join us</p>
@@ -18,7 +18,7 @@ export default function Events() {
       </section>
 
       {/* Events */}
-      <section style={{ maxWidth: 1200, margin: '0 auto', padding: '60px 40px' }}>
+      <section style={{ maxWidth: 1200, margin: '0 auto', padding: '42px 40px 28px' }}>
 
         {/* Douro Valley Day Trip */}
         <EventBlock
@@ -37,7 +37,7 @@ export default function Events() {
           reverse
         />
 
-        <div className="divider" style={{ margin: '60px auto' }} />
+        <div className="divider" style={{ margin: '42px auto' }} />
 
         {/* Welcome Dinner */}
         <EventBlock
@@ -56,8 +56,8 @@ export default function Events() {
 
       </section>
 
-      <section style={{ maxWidth: 1200, margin: '0 auto', padding: '60px 40px' }}>
-        <div style={{ textAlign: 'center', marginBottom: 40 }}>
+      <section style={{ maxWidth: 1200, margin: '0 auto', padding: '28px 40px 36px' }}>
+        <div style={{ textAlign: 'center', marginBottom: 28 }}>
           <p className="section-label">Join us</p>
           <h1 style={{ fontSize: 'clamp(32px,6vw,56px)', fontWeight: 300 }}>Wedding Day Timeline</h1>
           <div className="divider" />
@@ -93,8 +93,8 @@ export default function Events() {
 
       <section style={{
         textAlign: 'center',
-        padding: 'clamp(56px,8vw,76px) clamp(16px,5vw,40px) 48px',
-        background: 'linear-gradient(to bottom, var(--warm-white), var(--cream))'
+        padding: 'clamp(40px,6vw,56px) clamp(16px,5vw,40px) 40px',
+        background: 'var(--warm-white)'
       }}>
         <p className="section-label">Join us</p>
         <h1 style={{ fontSize: 'clamp(32px,6vw,56px)', fontWeight: 300 }}>Post-Wedding Pool Day</h1>
@@ -102,14 +102,6 @@ export default function Events() {
         <p style={{ maxWidth: 760, margin: '0 auto', lineHeight: 1.95, color: 'var(--text-muted)', fontSize: 15 }}>
           If you're staying an extra day, join us by the pool at the [Location TBD]! More details coming soon.
         </p>
-      </section>
-
-      <section style={{
-        padding: '20px 40px 80px', maxWidth: 860, margin: '0 auto', textAlign: 'center'
-      }}>
-        <a href="https://withjoy.com/BeMyBebawy/rsvp" target="_blank" rel="noopener noreferrer" className="btn" style={{ marginTop: 8 }}>
-          RSVP Now
-        </a>
       </section>
     </main>
   )
@@ -199,7 +191,7 @@ function EventBlock({ number, tag, title, description, details, rsvpNote, image,
               )}
             </div>
           ) : (
-            <p key={d.label} style={{ fontSize: 13, color: 'var(--text-muted)', marginBottom: 6 }}>
+            <p key={d.label} style={{ fontSize: 13, color: 'var(--text-muted)', marginBottom: d.label === 'Venue' ? 0 : 6 }}>
               <span style={{ fontWeight: 500, color: 'var(--text-dark)' }}>{d.label}:</span> {d.value}
             </p>
           )
