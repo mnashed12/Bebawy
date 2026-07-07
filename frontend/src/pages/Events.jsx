@@ -100,7 +100,7 @@ export default function Events() {
         <h1 style={{ fontSize: 'clamp(32px,6vw,56px)', fontWeight: 300 }}>Post-Wedding Pool Day</h1>
         <div className="divider" />
         <p style={{ maxWidth: 760, margin: '0 auto', lineHeight: 1.95, color: 'var(--text-muted)', fontSize: 15 }}>
-          If you're staying an extra day, join us by the pool at the [Location TBD]! More details coming soon.
+          If you're staying an extra day, join us by the pool [Location TBD]! More details coming soon.
         </p>
       </section>
     </main>
