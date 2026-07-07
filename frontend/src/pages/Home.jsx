@@ -37,16 +37,16 @@ export default function Home() {
 
   return (
     <main>
-      {/* Hero — couple_back.mp4 as cinematic background */}
+      {/* Hero — landing page background */}
       <section style={{
         minHeight: '100vh', display: 'flex', flexDirection: 'column',
         alignItems: 'center', justifyContent: 'center', textAlign: 'center',
         padding: 'clamp(70px,12vw,100px) clamp(16px,5vw,40px) clamp(40px,6vw,60px)',
         position: 'relative', overflow: 'hidden'
       }}>
-        <video
-          src="/media/couple_back.mp4"
-          autoPlay muted loop playsInline
+        <img
+          src="/media/couple_disney.png"
+          alt="Carolyn and Marco"
           style={{
             position: 'absolute', inset: 0, width: '100%', height: '100%',
             objectFit: 'cover', zIndex: 0
@@ -121,7 +121,7 @@ export default function Home() {
 
             {/* Left-floated image */}
             <div className="story-img-left">
-              <img src="/media/couple_disney.png" alt="Carolyn and Marco" />
+              <img src="/media/front_2.jpeg" alt="Carolyn and Marco" />
             </div>
 
             <p>Some people say we're all connected by six degrees of separation—that every stranger is only a handful of introductions away from becoming someone who changes your life. Looking back, it almost feels as though our story was quietly writing itself long before we ever realized we were meant to read the same chapter.</p>
