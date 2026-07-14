@@ -38,7 +38,7 @@ export default function Home() {
   return (
     <main>
       {/* Hero — landing page background */}
-      <section style={{
+      <section className="home-hero" style={{
         minHeight: '100vh', display: 'flex', flexDirection: 'column',
         alignItems: 'center', justifyContent: 'center', textAlign: 'center',
         padding: 'clamp(70px,12vw,100px) clamp(16px,5vw,40px) clamp(40px,6vw,60px)',

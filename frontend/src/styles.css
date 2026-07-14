@@ -46,7 +46,7 @@ h1, h2, h3, h4 {
   padding: 18px 40px;
   background: rgba(250, 248, 244, 0.92);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--gold-light);
+  border-bottom: none;
 }
 
 .nav a {
@@ -313,7 +313,7 @@ h1, h2, h3, h4 {
   top: 57px; left: 0; right: 0;
   background: rgba(250, 248, 244, 0.98);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--gold-light);
+  border-bottom: none;
   z-index: 99;
   max-height: 0;
   overflow: hidden;
@@ -377,10 +377,7 @@ h1, h2, h3, h4 {
   /* Countdown */
   .countdown-row { gap: 10px; }
 
-  /* Section padding — kill oversized horizontal padding on mobile */
-  section { padding-left: clamp(16px, 5vw, 40px) !important; padding-right: clamp(16px, 5vw, 40px) !important; }
 }
-
 
 /* Page sections */
 .page-section {
