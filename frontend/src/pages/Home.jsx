@@ -49,7 +49,7 @@ export default function Home() {
           alt="Carolyn and Marco"
           style={{
             position: 'absolute', inset: 0, width: '100%', height: '100%',
-            objectFit: 'cover', zIndex: 0
+            objectFit: 'cover', objectPosition: 'center', zIndex: 0
           }}
         />
         {/* Dark overlay for text legibility */}
