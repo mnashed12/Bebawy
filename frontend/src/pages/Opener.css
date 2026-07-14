@@ -86,7 +86,7 @@
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   font-family: 'Montserrat', sans-serif;
-  font-size: 11px;
+  font-size: 16px;
   letter-spacing: 0.24em;
   text-align: center;
   outline: none;
@@ -102,7 +102,7 @@
 }
 .envelope-password input::placeholder {
   color: rgba(74, 58, 42, 0.5);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.28em;
   text-transform: uppercase;
 }

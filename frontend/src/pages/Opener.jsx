@@ -157,23 +157,6 @@ export default function Opener({ onUnlock }) {
   const [error, setError] = useState(false)
   const [scratchCount, setScratchCount] = useState(0)
 
-  useEffect(() => {
-    const viewport = document.querySelector('meta[name="viewport"]')
-    if (!viewport) return
-
-    const original = viewport.getAttribute('content') || ''
-
-    // Keep opener stages edge-to-edge across devices while preserving safe-area support.
-    viewport.setAttribute(
-      'content',
-      'width=device-width, initial-scale=1, viewport-fit=cover'
-    )
-
-    return () => {
-      viewport.setAttribute('content', original || 'width=device-width, initial-scale=1')
-    }
-  }, [])
-
   function handlePassword(e) {
     e.preventDefault()
     if (password.toLowerCase() === PASSWORD) {
