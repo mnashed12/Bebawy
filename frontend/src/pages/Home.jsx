@@ -116,7 +116,7 @@ export default function Home() {
             </p>
             <div style={{ marginTop: 20 }}>
               <a href="https://withjoy.com/BeMyBebawy/rsvp" target="_blank" rel="noopener noreferrer" className="btn">
-                RSVP
+                RSVP HERE
               </a>
             </div>
           </div>
