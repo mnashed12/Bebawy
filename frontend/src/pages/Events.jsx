@@ -22,6 +22,7 @@ export default function Events() {
 
         {/* Douro Valley Day Trip */}
         <EventBlock
+          tag="Thursday, May 13th 2027"
           title="Douro Valley Vineyards Day Trip"
           description="A trip to Porto is not complete without seeing the Douro Valley. It is the world's oldest wine region and a UNESCO World Heritage Site. We are hosting an optional private group tour to two local boutique wineries. The day includes a tour of the vineyards, 11 wine tastings, a farm-to-table gourmet lunch, and a private boat tour on the Douro River for approximately EUR 95 per person."
           details={[
@@ -38,9 +39,11 @@ export default function Events() {
 
         {/* Welcome Dinner */}
         <EventBlock
+          tag="Friday, May 14th 2027"
           title="Welcome Dinner"
           description="Ease into the weekend with cocktails, great food, and even better company -  enjoy golden hour, flowing wine, and the start of something unforgettable with us!"
           details={[
+            { label: 'Date', value: 'Friday, May 14th, 2027' },
             { label: 'Location', value: 'TBD — Details to follow' },
             { label: 'Time', value: 'TBD' },
           ]}
@@ -96,6 +99,7 @@ export default function Events() {
           title="Wedding Day"
           description="The big day is finally here! From shuttles to the last dance, we can't wait to celebrate every moment with you!"
           details={[
+            { label: 'Date', value: 'Sunday, May 16th, 2027' },
             {
               label: 'Wedding Day Shuttle Buses',
               time: '03:00 PM - 03:30 PM',
