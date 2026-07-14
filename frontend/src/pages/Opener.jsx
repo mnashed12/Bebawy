@@ -153,6 +153,7 @@ function ScratchCard({ label, onScratched }) {
 export default function Opener({ onUnlock }) {
   const [stage, setStage] = useState('envelope')
   const [password, setPassword] = useState('')
+  const [showPassword, setShowPassword] = useState(false)
   const [error, setError] = useState(false)
   const [scratchCount, setScratchCount] = useState(0)
 
@@ -162,10 +163,10 @@ export default function Opener({ onUnlock }) {
 
     const original = viewport.getAttribute('content') || ''
 
-    // Keep the opener fully visible on small screens and prevent pinch-zoom during this sequence.
+    // Keep opener stages edge-to-edge across devices while preserving safe-area support.
     viewport.setAttribute(
       'content',
-      'width=device-width, initial-scale=0.9, maximum-scale=0.9, user-scalable=no, viewport-fit=cover'
+      'width=device-width, initial-scale=1, viewport-fit=cover'
     )
 
     return () => {
@@ -204,13 +205,32 @@ export default function Opener({ onUnlock }) {
             <img src="/media/envelope.png" alt="" className="envelope-img" draggable={false} />
             <form className="envelope-password" onSubmit={handlePassword}>
               <div className="envelope-password-row">
-                <input
-                  type="password"
-                  placeholder="invitation code"
-                  value={password}
-                  onChange={e => setPassword(e.target.value)}
-                  autoComplete="off"
-                />
+                <div className="envelope-input-wrap">
+                  <input
+                    type={showPassword ? 'text' : 'password'}
+                    placeholder="invitation code"
+                    value={password}
+                    onChange={e => setPassword(e.target.value)}
+                    autoComplete="off"
+                  />
+                  <button
+                    type="button"
+                    className="envelope-show-icon-btn"
+                    onClick={() => setShowPassword(prev => !prev)}
+                    aria-label={showPassword ? 'Hide password' : 'Show password'}
+                    aria-pressed={showPassword}
+                  >
+                    {showPassword ? (
+                      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M2.1 3.5 1 4.6l4.4 4.4A12.6 12.6 0 0 0 1.8 12a12.8 12.8 0 0 0 20.4 5l2 2 1.1-1.1L2.1 3.5Zm7.2 7.2 3.4 3.4a3 3 0 0 1-3.4-3.4Zm5.9 5.9-1.6-1.6A4.5 4.5 0 0 1 9 10.4L7.8 9.2a6 6 0 0 0 7.4 7.4Zm2.1-2.1-1.2-1.2c.4-.4.7-1 .7-1.6a3 3 0 0 0-3-3c-.6 0-1.1.2-1.6.5l-1.2-1.2A4.5 4.5 0 0 1 18.8 12c0 .9-.2 1.8-.6 2.5ZM12 6.3c5 0 8.3 3.8 9.3 5.7-.4.7-1.1 1.8-2.3 2.8l1.1 1.1c1.8-1.5 2.7-3.1 2.9-3.5l.2-.4-.2-.4c-.2-.4-4-6.8-11-6.8-1.2 0-2.2.2-3.2.5l1.3 1.3c.6-.2 1.2-.3 1.9-.3Z" />
+                      </svg>
+                    ) : (
+                      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M12 5c-7 0-10.8 6.4-11 6.8L.8 12l.2.4C1.2 12.8 5 19.2 12 19.2s10.8-6.4 11-6.8l.2-.4-.2-.4C22.8 11.4 19 5 12 5Zm0 12.7c-5.2 0-8.3-4.4-9.3-5.7 1-1.3 4.1-5.7 9.3-5.7 5.2 0 8.3 4.4 9.3 5.7-1 1.3-4.1 5.7-9.3 5.7Zm0-9.2a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Zm0 5.5a2 2 0 1 1 0-4 2 2 0 0 1 0 4Z" />
+                      </svg>
+                    )}
+                  </button>
+                </div>
                 <button type="submit" className="envelope-enter-btn">Enter</button>
               </div>
               {error && <p className="pw-error">Incorrect — please try again</p>}

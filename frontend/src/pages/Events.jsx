@@ -61,6 +61,21 @@ export default function Events() {
           <p className="section-label">Join us</p>
           <h1 style={{ fontSize: 'clamp(32px,6vw,56px)', fontWeight: 300 }}>Wedding Day Timeline</h1>
           <div className="divider" />
+
+          <div style={{ textAlign: 'center', marginTop: 'clamp(12px,2vw,20px)' }}>
+            <h2 style={{
+              fontFamily: 'Cormorant Garamond, serif', fontSize: 'clamp(24px, 3.8vw, 40px)',
+              fontWeight: 400, color: 'var(--burgundy)', lineHeight: 1.15, marginBottom: 12,
+            }}>
+              Quinta do Alferes de Crasto
+            </h2>
+            <p style={{
+              fontFamily: 'Montserrat, sans-serif', fontSize: 9, fontWeight: 500,
+              letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--text-muted)', margin: 0,
+            }}>
+              R. do Crasto, 4485-684 Vairao, Portugal
+            </p>
+          </div>
         </div>
 
         {/* Wedding Day */}
@@ -79,12 +94,19 @@ export default function Events() {
               mapLink: 'https://maps.google.com/?q=Igreja+da+Lapa,+Porto',
               mapPreview: '/media/googlemaps.png',
             },
-            { label: 'Wedding Ceremony', time: '04:30 PM - 05:30 PM', text: 'Grab a seat - it\'s finally happening. We\'re tying the knot! Please arrive no later than 4:15 PM.' },
+            {
+              label: 'Wedding Ceremony',
+              time: '04:30 PM - 05:30 PM',
+              text: 'Grab a seat - it\'s finally happening. We\'re tying the knot! Please arrive no later than 4:15 PM.',
+              mapLink: 'https://maps.google.com/?q=Quinta+do+Alferes+de+Crasto,+Vairao,+Portugal',
+              mapPreview: '/media/googlemaps2.png',
+            },
             { label: 'Cocktail Hour', time: '05:30 PM - 07:30 PM', text: 'Because every great celebration deserves a Hugo Spritz break.' },
             { label: 'Wedding Reception', time: '07:30 PM - 3:00 AM', text: 'An evening of incredible food, overflowing dance floors, and one very happy couple until the sunrise. Enjoy the reception and dance the night away, then kick back on the shuttles going back to the Lapa Church area starting at 11PM. Shuttles will run every hour.' },
           ]}
-          rsvpNote={<a href="https://withjoy.com/BeMyBebawy/rsvp" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--burgundy)', textDecoration: 'underline' }}>RSVP here</a>}
-          image="/media/venue_bg.png"
+          rsvpNote={<a href="https://withjoy.com/BeMyBebawy/rsvp" target="_blank" rel="noopener noreferrer" className="btn">RSVP here</a>}
+          rsvpAsButton
+          hideImage
           secondaryImage="/media/googlemaps2.png"
           reverse
         />
@@ -107,37 +129,36 @@ export default function Events() {
   )
 }
 
-function EventBlock({ number, tag, title, description, details, rsvpNote, image, secondaryImage, reverse }) {
+function EventBlock({ number, tag, title, description, details, rsvpNote, image, secondaryImage, reverse, hideImage, rsvpAsButton }) {
   return (
-    <div className="event-block-grid" style={{ direction: reverse ? 'rtl' : 'ltr' }}>
+    <div
+      className="event-block-grid"
+      style={{
+        direction: reverse ? 'rtl' : 'ltr',
+        gridTemplateColumns: hideImage ? '1fr' : undefined,
+      }}
+    >
       {/* Image */}
-      <div className="event-image" style={{ direction: 'ltr' }}>
-        <img
-          src={image}
-          alt={title}
-          style={{ width: '100%', height: 'auto', objectFit: 'contain', objectPosition: 'center', display: 'block', transition: 'transform 0.6s ease', background: '#f7f2ea' }}
-          onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.04)'}
-          onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
-        />
-        {secondaryImage && (
-          <details style={{ marginTop: 14 }}>
-            <summary style={{
-              cursor: 'pointer',
-              fontSize: 11,
-              letterSpacing: '0.14em',
-              textTransform: 'uppercase',
-              color: 'var(--burgundy)',
-            }}>
-              View Map Preview
-            </summary>
-            <img
-              src={secondaryImage}
-              alt={`${title} map preview`}
-              style={{ width: '100%', height: 'auto', objectFit: 'contain', objectPosition: 'center', display: 'block', marginTop: 10 }}
-            />
-          </details>
-        )}
-      </div>
+      {!hideImage && (
+        <div className="event-image" style={{ direction: 'ltr' }}>
+          <img
+            src={image}
+            alt={title}
+            style={{ width: '100%', height: 'auto', objectFit: 'contain', objectPosition: 'center', display: 'block', transition: 'transform 0.6s ease', background: '#f7f2ea' }}
+            onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.04)'}
+            onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
+          />
+          {secondaryImage && (
+            <div style={{ marginTop: 14 }}>
+              <img
+                src={secondaryImage}
+                alt={`${title} map preview`}
+                style={{ width: '100%', height: 'auto', objectFit: 'contain', objectPosition: 'center', display: 'block', marginTop: 10 }}
+              />
+            </div>
+          )}
+        </div>
+      )}
 
       {/* Text */}
       <div style={{ direction: 'ltr' }}>
@@ -159,35 +180,28 @@ function EventBlock({ number, tag, title, description, details, rsvpNote, image,
                 {d.text}
               </p>
               {d.mapLink && d.mapPreview && (
-                <details style={{ marginTop: 10 }}>
-                  <summary style={{
-                    cursor: 'pointer',
-                    fontSize: 11,
-                    letterSpacing: '0.14em',
-                    textTransform: 'uppercase',
-                    color: 'var(--burgundy)',
-                  }}>
-                    View Lapa Church Map
-                  </summary>
+                <div style={{ marginTop: 10, display: 'flex', justifyContent: 'center' }}>
                   <a
                     href={d.mapLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={{ display: 'block', width: 'fit-content', margin: '10px auto 0' }}
+                    style={{ display: 'block', width: 'min(260px, 100%)', marginTop: 10 }}
                   >
                     <img
                       src={d.mapPreview}
                       alt="Open Lapa Church in Google Maps"
                       style={{
-                        width: 'min(260px, 100%)',
-                        height: 'auto',
+                        width: '100%',
+                        height: 170,
+                        objectFit: 'cover',
+                        objectPosition: 'center',
                         display: 'block',
                         border: '1px solid var(--gold-light)',
                         borderRadius: 6,
                       }}
                     />
                   </a>
-                </details>
+                </div>
               )}
             </div>
           ) : (
@@ -196,10 +210,15 @@ function EventBlock({ number, tag, title, description, details, rsvpNote, image,
             </p>
           )
         ))}
-        {rsvpNote && (
+        {rsvpNote && !rsvpAsButton && (
           <p style={{ marginTop: 20, fontSize: 11, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--burgundy)' }}>
             ↳ {rsvpNote}
           </p>
+        )}
+        {rsvpNote && rsvpAsButton && (
+          <div style={{ marginTop: 22 }}>
+            {rsvpNote}
+          </div>
         )}
       </div>
     </div>
