@@ -39,17 +39,17 @@ export default function Home() {
     <main>
       {/* Hero — landing page background */}
       <section style={{
-        minHeight: '100vh', display: 'flex', flexDirection: 'column',
-        alignItems: 'center', justifyContent: 'center', textAlign: 'center',
-        padding: 'clamp(70px,12vw,100px) clamp(16px,5vw,40px) clamp(40px,6vw,60px)',
-        position: 'relative', overflow: 'hidden'
+        marginTop: 57,
+        position: 'relative',
+        overflow: 'hidden'
       }}>
         <img
           src="/media/couple_disney.png"
           alt="Carolyn and Marco"
           style={{
-            position: 'absolute', inset: 0, width: '100%', height: '100%',
-            objectFit: 'cover', objectPosition: '55% 50%', transform: 'scale(1.06)', transformOrigin: 'center', zIndex: 0
+            width: '100%',
+            height: 'auto',
+            display: 'block'
           }}
         />
         {/* Dark overlay for text legibility */}
@@ -57,17 +57,25 @@ export default function Home() {
           position: 'absolute', inset: 0, zIndex: 1,
           background: 'linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.15) 50%, rgba(0,0,0,0.5) 100%)'
         }} />
-        <div style={{ position: 'relative', zIndex: 2, color: 'white' }}>
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          zIndex: 2,
+          color: 'white',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          textAlign: 'center',
+          padding: 'clamp(12px,2.8vw,28px) clamp(16px,5vw,40px)'
+        }}>
           <p className="section-label fade-up" style={{ color: 'rgba(255,255,255,0.75)' }}>Together with their families</p>
-          <h1 className="fade-up-delay-1" style={{ fontSize: 'clamp(52px, 9vw, 96px)', lineHeight: 1.1, fontWeight: 300, textShadow: '0 2px 30px rgba(0,0,0,0.3)' }}>
+          <h1 className="fade-up-delay-1" style={{ fontSize: 'clamp(30px, 6vw, 58px)', lineHeight: 1.1, fontWeight: 300, textShadow: '0 2px 30px rgba(0,0,0,0.3)' }}>
             Carolyn<br />&amp; Marco
           </h1>
           <div className="divider fade-up-delay-2" style={{ background: 'rgba(255,255,255,0.6)' }} />
-          <p className="fade-up-delay-2" style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 22, fontStyle: 'italic', opacity: 0.9 }}>
+          <p className="fade-up-delay-2" style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 15, fontStyle: 'italic', opacity: 0.9 }}>
             request the pleasure of your company
-          </p>
-          <p className="fade-up-delay-3" style={{ marginTop: 16, fontSize: 12, letterSpacing: '0.22em', textTransform: 'uppercase', opacity: 0.85 }}>
-            May 16, 2027 · Quinta do Alferes de Crasto · Portugal
           </p>
         </div>
       </section>
