@@ -106,6 +106,11 @@ export default function Home() {
             <p style={{ lineHeight: 1.85, color: 'var(--text-muted)', fontSize: 'clamp(14px,1.6vw,16px)', fontStyle: 'italic' }}>
               We hope this website has everything you need to plan your trip. We can't wait to raise a glass, dance the night away, and create memories we'll cherish together forever in Portugal!
             </p>
+            <div style={{ marginTop: 20 }}>
+              <a href="https://withjoy.com/BeMyBebawy/rsvp" target="_blank" rel="noopener noreferrer" className="btn">
+                RSVP
+              </a>
+            </div>
           </div>
         </div>
       </section>
