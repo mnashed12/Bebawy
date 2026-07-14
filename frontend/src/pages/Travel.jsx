@@ -49,14 +49,6 @@ export default function Travel() {
             and Lisbon — a few of our favourite places in the world.
           </p>
         </div>
-        {/* Portugal map photo */}
-        <div style={{ flex: '0 0 clamp(200px, 35vw, 340px)' }}>
-          <img
-            src="/media/portugal_map.png"
-            alt="Map of Portugal"
-            style={{ width: '100%', height: 'auto', display: 'block' }}
-          />
-        </div>
         </div>{/* end portugal-flex */}
       </section>
 
@@ -106,7 +98,7 @@ export default function Travel() {
 
           <p style={{ marginTop: 22, fontSize: 14, color: 'var(--text-muted)', textAlign: 'center' }}>
             If you have any questions, please check our Q &amp; A section below!{' '}
-            <a href="/qa" style={{ color: 'var(--burgundy)', textDecoration: 'underline' }}>View Q&amp;A</a>
+            <a href="#qa" style={{ color: 'var(--burgundy)', textDecoration: 'underline' }}>View Q&amp;A</a>
           </p>
         </div>
       </section>

@@ -22,12 +22,9 @@ export default function Events() {
 
         {/* Douro Valley Day Trip */}
         <EventBlock
-          number="01"
-          tag="Thursday, May 13th 2027"
           title="Douro Valley Vineyards Day Trip"
           description="A trip to Porto is not complete without seeing the Douro Valley. It is the world's oldest wine region and a UNESCO World Heritage Site. We are hosting an optional private group tour to two local boutique wineries. The day includes a tour of the vineyards, 11 wine tastings, a farm-to-table gourmet lunch, and a private boat tour on the Douro River for approximately EUR 95 per person."
           details={[
-            { label: 'Date', value: 'Thursday, May 13th, 2027' },
             { label: 'Duration', value: 'Approximately 10 hours (full-day tour)' },
             { label: 'Transportation', value: 'Round-trip transportation included' },
             { label: 'Note', value: 'If you would like to attend, please RSVP below. We will reach out with additional details.' },
@@ -41,8 +38,6 @@ export default function Events() {
 
         {/* Welcome Dinner */}
         <EventBlock
-          number="02"
-          tag="Friday, May 14th 2027"
           title="Welcome Dinner"
           description="Ease into the weekend with cocktails, great food, and even better company -  enjoy golden hour, flowing wine, and the start of something unforgettable with us!"
           details={[
@@ -62,6 +57,24 @@ export default function Events() {
           <h1 style={{ fontSize: 'clamp(32px,6vw,56px)', fontWeight: 300 }}>Wedding Day Timeline</h1>
           <div className="divider" />
 
+          <div style={{
+            width: '100%',
+            height: 'clamp(240px, 45vw, 520px)',
+            overflow: 'hidden',
+            position: 'relative',
+            marginTop: 'clamp(20px, 3vw, 32px)'
+          }}>
+            <img
+              src="/media/venue_bg.png"
+              alt="Quinta do Alferes de Crasto"
+              style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }}
+            />
+            <div style={{
+              position: 'absolute', inset: 0,
+              background: 'linear-gradient(to bottom, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.35) 100%)'
+            }} />
+          </div>
+
           <div style={{ textAlign: 'center', marginTop: 'clamp(12px,2vw,20px)' }}>
             <h2 style={{
               fontFamily: 'Cormorant Garamond, serif', fontSize: 'clamp(24px, 3.8vw, 40px)',
@@ -80,13 +93,10 @@ export default function Events() {
 
         {/* Wedding Day */}
         <EventBlock
-          number="03"
           tag="Sunday, May 16th 2027"
           title="Wedding Day"
           description="The big day is finally here! From shuttles to the last dance, we can't wait to celebrate every moment with you!"
           details={[
-            { label: 'Date', value: 'Sunday, May 16th, 2027' },
-            { label: 'Venue', value: 'Quinta do Alferes de Crasto, Vairão, Portugal' },
             {
               label: 'Wedding Day Shuttle Buses',
               time: '03:00 PM - 03:30 PM',
