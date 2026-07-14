@@ -74,29 +74,6 @@ export default function Accommodation() {
           ))}
         </div>
 
-        <div style={{ textAlign: 'center', marginTop: 42 }}>
-          <details style={{ display: 'inline-block', textAlign: 'center' }}>
-            <summary style={{
-              cursor: 'pointer',
-              fontSize: 11,
-              letterSpacing: '0.14em',
-              textTransform: 'uppercase',
-              color: 'var(--burgundy)',
-            }}>
-              View Hotel Map
-            </summary>
-            <img
-              src="/media/hotelmap.png"
-              alt="Accommodation map"
-              style={{
-                width: 'min(820px, 92vw)',
-                height: 'auto',
-                display: 'block',
-                margin: '14px auto 0',
-              }}
-            />
-          </details>
-        </div>
       </section>
     </main>
   )
