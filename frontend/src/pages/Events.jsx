@@ -41,7 +41,6 @@ export default function Events() {
           title="Welcome Dinner"
           description="Ease into the weekend with cocktails, great food, and even better company -  enjoy golden hour, flowing wine, and the start of something unforgettable with us!"
           details={[
-            { label: 'Date', value: 'Friday, May 14th, 2027' },
             { label: 'Location', value: 'TBD — Details to follow' },
             { label: 'Time', value: 'TBD' },
           ]}
