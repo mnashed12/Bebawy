@@ -7,7 +7,11 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'dev-secret-key')
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['bebawy2027.pythonanywhere.com']
+ALLOWED_HOSTS = [
+    'bebawy2027.pythonanywhere.com',
+    'bemybebawy.com',
+    'www.bemybebawy.com',
+]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -53,7 +57,11 @@ TEMPLATES = [
     },
 ]
 
-CSRF_TRUSTED_ORIGINS = ['bebawy2027.pythonanywhere.com']
+CSRF_TRUSTED_ORIGINS = [
+    'https://bebawy2027.pythonanywhere.com',
+    'https://bemybebawy.com',
+    'https://www.bemybebawy.com',
+]
 
 WSGI_APPLICATION = 'weddingsite.wsgi.application'
 
