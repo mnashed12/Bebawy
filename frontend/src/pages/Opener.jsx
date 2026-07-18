@@ -1,7 +1,7 @@
 ﻿import React, { useState, useRef, useEffect, useCallback } from 'react'
 import './Opener.css'
 
-const PASSWORD = 'bebawy2027'
+const PASSWORD = '$BeMyBebawy27!'
 const CARD_SIZE = 110   // canvas px
 const SCRATCH_THRESHOLD = 0.68  // 68% cleared → auto-reveal
 
@@ -159,7 +159,7 @@ export default function Opener({ onUnlock }) {
 
   function handlePassword(e) {
     e.preventDefault()
-    if (password.toLowerCase() === PASSWORD) {
+    if (password === PASSWORD) {
       setError(false)
       setStage('fading')
       setTimeout(() => setStage('plane-closed'), 1200)
