@@ -35,22 +35,6 @@ export default function Travel() {
       </section>
 
       {/* Portugal map visual */}
-      <section style={{ padding: '70px 40px', maxWidth: 1200, margin: '0 auto' }}>
-        <div className="portugal-flex">
-        <div style={{ flex: '1 1 300px' }}>
-          <p className="section-label">On the Map</p>
-          <h2 style={{ fontSize: 38, fontWeight: 300, marginBottom: 20 }}>Portugal</h2>
-          <p style={{ lineHeight: 1.9, color: 'var(--text-muted)', fontSize: 15, marginBottom: 16 }}>
-            Vairão (where the venue is located) sits just north of Porto in the Minho region —
-            one of Portugal's most scenic wine-growing areas.
-          </p>
-          <p style={{ lineHeight: 1.9, color: 'var(--text-muted)', fontSize: 15 }}>
-            If you have time, we strongly recommend exploring Porto, the Douro Valley,
-            and Lisbon — a few of our favourite places in the world.
-          </p>
-        </div>
-        </div>{/* end portugal-flex */}
-      </section>
 
       {/* Suggested Activities */}
       <section style={{ maxWidth: 1200, margin: '0 auto', padding: '0 40px 70px' }}>
@@ -85,14 +69,17 @@ export default function Travel() {
             <TipCard
               title="Taxis & Uber"
               body="Readily available throughout Porto and relatively inexpensive. This is our recommended option for getting around the city."
+              recommended
             />
             <TipCard
               title="Train"
               body="Porto has an excellent metro and train network. The metro connects the airport directly to the city centre."
+              recommended
             />
             <TipCard
               title="Car Rental"
               body="We do not suggest renting a car in Porto city centre — streets can be quite narrow and congested, and parking is difficult."
+              recommended={false}
             />
           </div>
 
@@ -132,7 +119,7 @@ function AirportCard({ code, name, body, recommended }) {
   )
 }
 
-function TipCard({ icon, title, body }) {
+function TipCard({ icon, title, body, recommended }) {
   return (
     <div style={{
       position: 'relative',
@@ -179,9 +166,11 @@ function TipCard({ icon, title, body }) {
         }}>{body}</p>
       </div>
 
-      <div style={{ fontSize: 10, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--burgundy)', opacity: 0.9 }}>
-        Recommended
-      </div>
+      {recommended !== undefined && (
+        <div style={{ fontSize: 10, letterSpacing: '0.18em', textTransform: 'uppercase', color: recommended ? 'var(--burgundy)' : 'var(--text-muted)', opacity: 0.9 }}>
+          {recommended ? 'Recommended' : 'Not Recommended'}
+        </div>
+      )}
     </div>
   )
 }

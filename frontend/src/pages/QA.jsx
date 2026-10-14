@@ -9,21 +9,32 @@ const FAQS = [
   {
     question: 'What is the dress code?',
     answer:
-      "Our celebration calls for Black Tie attire inspired by the effortless elegance of Portugal. Picture flowing gowns, impeccably tailored suits, polished shoes, and classic accessories. Think Old Money, Quiet Luxury, and European Summer. We encourage timeless styles over trends for an evening that feels both sophisticated and celebratory. Leave the stilettos at home though! The wedding venue has a mix of grass, pavers, and cobblestones, so go for block or martini heels instead. We don't want anyone ruining their shoes or twisting an ankle. We can't wait to celebrate in style with all of you!",
+      "Our celebration calls for Black Tie attire inspired by the effortless elegance of Portugal. Picture long flowing gowns, impeccably tailored suits, polished shoes, and classic accessories. Think Old Money and Quiet Luxury.",
+  },
+  {
+    question: 'What heels should I wear?',
+    answer:
+      "Leave the stilettos at home! The wedding venue has a mix of grass, pavers, and cobblestones, so go for block or martini heels instead. We don't want anyone ruining their shoes or twisting an ankle!",
+  },
+  {
+    question: 'What should I not wear?',
+    answer:
+      "Please avoid wearing white, ivory, beige, cream — you'll be getting a bill for the full cost of the wedding since you thought you were marrying Marco.",
   },
   {
     question: "What's the RSVP deadline?",
-    answer: 'Please RSVP by February 1st so we can get an accurate headcount. :)',
+    answer:
+      "Please RSVP by February 1st so we can save you a seat. If we don't receive your response by then, we'll mark you as unable to attend.",
   },
   {
     question: 'Can I bring a date?',
     answer:
-      "To keep our celebration intimate, we are only able to accommodate the guests listed on each invitation. If a plus-one has been reserved for you, it will be reflected in your RSVP. We truly appreciate your understanding and can't wait to celebrate together.",
+      'If a plus-one has been reserved for you, their name will be included on your invitation when you RSVP.',
   },
   {
     question: 'Are kids welcome?',
     answer:
-      'We love your little ones, but the ceremony and reception are adults-only. However, we know some of you will be traveling with kids, so please come with them to the welcome dinner and the post-wedding pool day! Please reach out if you have any questions!',
+      'To allow all of our guests to enjoy the evening with us, our wedding will be an adults-only celebration. Please reach out if you have any questions!',
   },
 ]
 

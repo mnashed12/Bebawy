@@ -2,51 +2,73 @@
 import './Opener.css'
 
 const PASSWORD = '$BeMyBebawy27!'
-const CARD_SIZE = 110   // canvas px
-const SCRATCH_THRESHOLD = 0.68  // 68% cleared → auto-reveal
+const CARD_SIZE = 110   // canvas px (circle)
+const CARD_W = 360      // canvas px (bar)
+const CARD_H = 120      // canvas px (bar)
+const SCRATCH_THRESHOLD = 0.45  // 45% cleared → auto-reveal
 
-function ScratchCard({ label, onScratched }) {
+function ScratchCard({ label, onScratched, shape = 'circle' }) {
   const canvasRef = useRef(null)
   const [revealed, setRevealed] = useState(false)
   const [started, setStarted] = useState(false)
   const isDrawing = useRef(false)
   const lastPos = useRef(null)
 
+  const isBar = shape === 'bar'
+  const w = isBar ? CARD_W : CARD_SIZE
+  const h = isBar ? CARD_H : CARD_SIZE
+
   // Draw gold foil once canvas mounts
   useEffect(() => {
     const canvas = canvasRef.current
     if (!canvas) return
     const ctx = canvas.getContext('2d')
+    const r = isBar ? 26 : w / 2   // corner radius
     // Gold radial gradient
-    const grad = ctx.createRadialGradient(40, 38, 4, 55, 55, 58)
+    const grad = isBar
+      ? ctx.createRadialGradient(w * 0.3, h * 0.3, 8, w / 2, h / 2, w * 0.62)
+      : ctx.createRadialGradient(40, 38, 4, 55, 55, 58)
     grad.addColorStop(0, '#f5e070')
     grad.addColorStop(0.35, '#d4a830')
     grad.addColorStop(0.75, '#b8861a')
     grad.addColorStop(1, '#7a5008')
     ctx.fillStyle = grad
     ctx.beginPath()
-    ctx.arc(CARD_SIZE / 2, CARD_SIZE / 2, CARD_SIZE / 2, 0, Math.PI * 2)
+    if (isBar) {
+      ctx.roundRect(0, 0, w, h, r)
+    } else {
+      ctx.arc(w / 2, h / 2, w / 2, 0, Math.PI * 2)
+    }
     ctx.fill()
     // Shine arc
     ctx.strokeStyle = 'rgba(255,255,200,0.5)'
     ctx.lineWidth = 3
     ctx.lineCap = 'round'
     ctx.beginPath()
-    ctx.arc(CARD_SIZE / 2, CARD_SIZE / 2, 34, Math.PI * 1.25, Math.PI * 1.75)
+    if (isBar) {
+      ctx.moveTo(30, h - 26)
+      ctx.quadraticCurveTo(w * 0.25, h - 44, w * 0.45, h - 30)
+    } else {
+      ctx.arc(w / 2, h / 2, 34, Math.PI * 1.25, Math.PI * 1.75)
+    }
     ctx.stroke()
     // Subtle ring
     ctx.strokeStyle = 'rgba(255,240,120,0.3)'
     ctx.lineWidth = 1.5
     ctx.beginPath()
-    ctx.arc(CARD_SIZE / 2, CARD_SIZE / 2, 46, 0, Math.PI * 2)
+    if (isBar) {
+      ctx.roundRect(10, 10, w - 20, h - 20, r - 8)
+    } else {
+      ctx.arc(w / 2, h / 2, 46, 0, Math.PI * 2)
+    }
     ctx.stroke()
     // Hint text
-    ctx.font = '600 9px Montserrat, sans-serif'
+    ctx.font = isBar ? '600 12px Montserrat, sans-serif' : '600 9px Montserrat, sans-serif'
     ctx.letterSpacing = '0.1em'
     ctx.fillStyle = 'rgba(80,40,0,0.55)'
     ctx.textAlign = 'center'
     ctx.textBaseline = 'middle'
-    ctx.fillText('SCRATCH', CARD_SIZE / 2, CARD_SIZE / 2)
+    ctx.fillText('SCRATCH', w / 2, h / 2)
   }, [])
 
   function getPos(e, canvas) {
@@ -62,7 +84,7 @@ function ScratchCard({ label, onScratched }) {
 
   function scratch(ctx, x, y) {
     ctx.globalCompositeOperation = 'destination-out'
-    ctx.lineWidth = 32
+    ctx.lineWidth = 44
     ctx.lineCap = 'round'
     ctx.lineJoin = 'round'
     ctx.beginPath()
@@ -70,7 +92,7 @@ function ScratchCard({ label, onScratched }) {
       ctx.moveTo(lastPos.current.x, lastPos.current.y)
       ctx.lineTo(x, y)
     } else {
-      ctx.arc(x, y, 16, 0, Math.PI * 2)
+      ctx.arc(x, y, 22, 0, Math.PI * 2)
     }
     ctx.stroke()
     lastPos.current = { x, y }
@@ -119,17 +141,17 @@ function ScratchCard({ label, onScratched }) {
   }, [revealed])
 
   return (
-    <div className="scratch-wrap">
-      {/* Revealed date underneath */}
-      <div className="scratch-reveal-text revealed">{label}</div>
+    <div className={`scratch-wrap${isBar ? ' scratch-wrap-bar' : ''}`}>
+      {/* Revealed destination underneath */}
+      <div className={`scratch-reveal-text${isBar ? ' scratch-reveal-text-bar' : ''}`}>{label}</div>
 
       {/* Gold foil canvas on top */}
       {!revealed && (
         <canvas
           ref={canvasRef}
-          width={CARD_SIZE}
-          height={CARD_SIZE}
-          className="scratch-canvas"
+          width={w}
+          height={h}
+          className={`scratch-canvas${isBar ? ' scratch-canvas-bar' : ''}`}
           onMouseDown={onStart}
           onMouseMove={onMove}
           onMouseUp={onEnd}
@@ -171,11 +193,8 @@ export default function Opener({ onUnlock }) {
   }
 
   function handleScratched() {
-    setScratchCount(prev => {
-      const next = prev + 1
-      if (next >= 3) setTimeout(() => setStage('date'), 600)
-      return next
-    })
+    setScratchCount(1)
+    setTimeout(() => setStage('date'), 600)
   }
 
   return (
@@ -247,24 +266,20 @@ export default function Opener({ onUnlock }) {
       {stage === 'scratch' && (
         <div className="scratch-scene fade-in">
           <p className="section-label">Reveal</p>
-          <h2 className="scratch-title">Scratch to Discover the Date</h2>
+          <h2 className="scratch-title">Scratch to Discover the Destination</h2>
           <div className="scratch-row">
-            <ScratchCard label="16" onScratched={handleScratched} />
-            <ScratchCard label="May" onScratched={handleScratched} />
-            <ScratchCard label="2027" onScratched={handleScratched} />
+            <ScratchCard label="Portugal" onScratched={handleScratched} shape="bar" />
           </div>
-          {scratchCount < 3 && <p className="scratch-hint">Tap each coin to reveal</p>}
+          {scratchCount < 1 && <p className="scratch-hint">Scratch the bar to reveal</p>}
         </div>
       )}
 
       {/* Date Reveal */}
       {stage === 'date' && (
         <div className="date-reveal fade-in">
-          <p className="section-label">Save the Date</p>
+          <p className="section-label">Destination</p>
           <div className="scratch-row">
-            <div className="revealed-chip">16</div>
-            <div className="revealed-chip">May</div>
-            <div className="revealed-chip">2027</div>
+            <div className="revealed-chip revealed-chip-bar">Portugal</div>
           </div>
           <p className="we-getting-married">We&rsquo;re getting married!</p>
           <button className="btn" style={{ marginTop: 40 }} onClick={onUnlock}>Enter</button>

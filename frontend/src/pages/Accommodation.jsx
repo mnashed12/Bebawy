@@ -29,13 +29,6 @@ const HOTELS = [
     description: 'A stylish modern stay with a lively social atmosphere, flexible spaces, and a convenient Porto location.',
     tier: 'Mid-range',
   },
-  {
-    name: 'Room Select Porto Suites',
-    url: 'https://www.booking.com/hotel/pt/room-select-porto-suites.html',
-    image: '/media/room_select.jpg',
-    description: 'Spacious apartment-style suites ideal for longer stays, centrally located.',
-    tier: 'Apartment',
-  },
 ]
 
 const TIER_COLORS = {

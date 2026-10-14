@@ -24,13 +24,13 @@ export default function Events() {
         <EventBlock
           tag="Thursday, May 13th 2027"
           title="Douro Valley Vineyards Day Trip"
-          description="A trip to Porto is not complete without seeing the Douro Valley. It is the world's oldest wine region and a UNESCO World Heritage Site. We are hosting an optional private group tour to two local boutique wineries. The day includes a tour of the vineyards, 11 wine tastings, a farm-to-table gourmet lunch, and a private boat tour on the Douro River for approximately EUR 95 per person."
+          description="A trip to Porto isn't complete without seeing the Douro Valley! It is the world's oldest wine region and a UNESCO World Heritage Site. We're hosting an optional private group tour to 2 local boutique wineries. The day includes a tour of the vineyards, an abundance of wine tastings, a delicious farm-to-table lunch, and a private boat tour on the Douro river."
           details={[
-            { label: 'Duration', value: 'Approximately 10 hours (full-day tour)' },
-            { label: 'Transportation', value: 'Round-trip transportation included' },
-            { label: 'Note', value: 'If you would like to attend, please RSVP below. We will reach out with additional details.' },
+            { label: 'Date', value: 'Thursday, May 13th, 2027' },
+            { label: 'Duration', value: 'Please note, this tour will take the whole day (~10 hours)' },
+            { label: 'Transportation', value: 'Round trip transportation will be arranged!' },
+            { label: 'RSVP', value: <>If you'd like to attend, please RSVP <a href="https://docs.google.com/forms/d/e/1FAIpQLScojRljCu3vwIZvTmZRs7Nn8mK0YJJsjz4C3dUo9-E9Go-IRA/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--burgundy)', textDecoration: 'underline' }}>here</a>. We will reach out with additional details.</> },
           ]}
-          rsvpNote={<a href="https://docs.google.com/forms/d/e/1FAIpQLScojRljCu3vwIZvTmZRs7Nn8mK0YJJsjz4C3dUo9-E9Go-IRA/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--burgundy)', textDecoration: 'underline' }}>RSVP for the day trip</a>}
           image="/media/valley.jpg"
           reverse
         />
@@ -110,12 +110,12 @@ export default function Events() {
             {
               label: 'Wedding Ceremony',
               time: '04:30 PM - 05:30 PM',
-              text: 'Grab a seat - it\'s finally happening. We\'re tying the knot! Please arrive no later than 4:15 PM.',
+              text: 'Please arrive no later than 4:15 PM so you have time to find a seat. Our ceremony will begin promptly at 4:30pm.',
               mapLink: 'https://maps.google.com/?q=Quinta+do+Alferes+de+Crasto,+Vairao,+Portugal',
               mapPreview: '/media/googlemaps2.png',
             },
             { label: 'Cocktail Hour', time: '05:30 PM - 07:30 PM', text: 'Because every great celebration deserves a Hugo Spritz break.' },
-            { label: 'Wedding Reception', time: '07:30 PM - 3:00 AM', text: 'An evening of incredible food, overflowing dance floors, and one very happy couple until the sunrise. Enjoy the reception and dance the night away, then kick back on the shuttles going back to the Lapa Church area starting at 11PM. Shuttles will run every hour.' },
+            { label: 'Wedding Reception', time: '07:30 PM - 3:00 AM', text: 'An evening of incredible food, overflowing dance floors, and one very happy couple until the sunrise. Enjoy the reception and dance the night away, then kick back on the shuttles going back to the Lapa Church area starting at 12 AM. Shuttles will run every hour with the last one leaving at 3 AM.' },
           ]}
           rsvpNote={<a href="https://withjoy.com/BeMyBebawy/rsvp" target="_blank" rel="noopener noreferrer" className="btn">RSVP here</a>}
           rsvpAsButton
@@ -125,20 +125,44 @@ export default function Events() {
         />
 
       </section>
-
-      <section style={{
-        textAlign: 'center',
-        padding: 'clamp(40px,6vw,56px) clamp(16px,5vw,40px) 40px',
-        background: 'var(--warm-white)'
-      }}>
-        <p className="section-label">Join us</p>
-        <h1 style={{ fontSize: 'clamp(32px,6vw,56px)', fontWeight: 300 }}>Post-Wedding Pool Day</h1>
-        <div className="divider" />
-        <p style={{ maxWidth: 760, margin: '0 auto', lineHeight: 1.95, color: 'var(--text-muted)', fontSize: 15 }}>
-          If you're staying an extra day, join us by the pool [Location TBD]! More details coming soon.
-        </p>
-      </section>
     </main>
+  )
+}
+
+function TimelineDetail({ d }) {
+  return (
+    <>
+      <p style={{ margin: 0, fontSize: 13, color: 'var(--text-dark)', fontWeight: 500 }}>
+        {d.label} <span style={{ color: 'var(--gold)' }}>|</span> <span style={{ color: 'var(--burgundy)' }}>{d.time}</span>
+      </p>
+      <p style={{ margin: '4px 0 0', fontSize: 13, color: 'var(--text-muted)', lineHeight: 1.8 }}>
+        {d.text}
+      </p>
+      {d.mapLink && d.mapPreview && (
+        <div style={{ marginTop: 10, display: 'flex', justifyContent: 'center' }}>
+          <a
+            href={d.mapLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ display: 'block', width: 'min(260px, 100%)', marginTop: 10 }}
+          >
+            <img
+              src={d.mapPreview}
+              alt="Open Lapa Church in Google Maps"
+              style={{
+                width: '100%',
+                height: 170,
+                objectFit: 'cover',
+                objectPosition: 'center',
+                display: 'block',
+                border: '1px solid var(--gold-light)',
+                borderRadius: 6,
+              }}
+            />
+          </a>
+        </div>
+      )}
+    </>
   )
 }
 
@@ -183,46 +207,30 @@ function EventBlock({ number, tag, title, description, details, rsvpNote, image,
         </p>
         <h2 style={{ fontSize: 'clamp(24px,4vw,38px)', fontWeight: 300, marginBottom: 16 }}>{title}</h2>
         <p style={{ lineHeight: 1.9, color: 'var(--text-muted)', fontSize: 14, marginBottom: 24 }}>{description}</p>
-        {details.map(d => (
-          d.time ? (
-            <div key={d.label} style={{ marginBottom: 12 }}>
-              <p style={{ margin: 0, fontSize: 13, color: 'var(--text-dark)', fontWeight: 500 }}>
-                {d.label} <span style={{ color: 'var(--gold)' }}>|</span> <span style={{ color: 'var(--burgundy)' }}>{d.time}</span>
-              </p>
-              <p style={{ margin: '4px 0 0', fontSize: 13, color: 'var(--text-muted)', lineHeight: 1.8 }}>
-                {d.text}
-              </p>
-              {d.mapLink && d.mapPreview && (
-                <div style={{ marginTop: 10, display: 'flex', justifyContent: 'center' }}>
-                  <a
-                    href={d.mapLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ display: 'block', width: 'min(260px, 100%)', marginTop: 10 }}
-                  >
-                    <img
-                      src={d.mapPreview}
-                      alt="Open Lapa Church in Google Maps"
-                      style={{
-                        width: '100%',
-                        height: 170,
-                        objectFit: 'cover',
-                        objectPosition: 'center',
-                        display: 'block',
-                        border: '1px solid var(--gold-light)',
-                        borderRadius: 6,
-                      }}
-                    />
-                  </a>
+        {details.filter(d => !d.time).map(d => (
+          <p key={d.label} style={{ fontSize: 13, color: 'var(--text-muted)', marginBottom: d.label === 'Venue' ? 0 : 6 }}>
+            <span style={{ fontWeight: 500, color: 'var(--text-dark)' }}>{d.label}:</span> {d.value}
+          </p>
+        ))}
+        {details.some(d => d.time) && (
+          hideImage ? (
+            <div className="timeline">
+              {details.filter(d => d.time).map(d => (
+                <div key={d.label} className="timeline-item">
+                  <div className="timeline-content">
+                    <TimelineDetail d={d} />
+                  </div>
                 </div>
-              )}
+              ))}
             </div>
           ) : (
-            <p key={d.label} style={{ fontSize: 13, color: 'var(--text-muted)', marginBottom: d.label === 'Venue' ? 0 : 6 }}>
-              <span style={{ fontWeight: 500, color: 'var(--text-dark)' }}>{d.label}:</span> {d.value}
-            </p>
+            details.filter(d => d.time).map(d => (
+              <div key={d.label} style={{ marginBottom: 12 }}>
+                <TimelineDetail d={d} />
+              </div>
+            ))
           )
-        ))}
+        )}
         {rsvpNote && !rsvpAsButton && (
           <p style={{ marginTop: 20, fontSize: 11, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--burgundy)' }}>
             ↳ {rsvpNote}

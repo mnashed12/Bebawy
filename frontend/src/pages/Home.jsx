@@ -38,19 +38,19 @@ export default function Home() {
   return (
     <main>
       {/* Hero — landing page background */}
-      <section style={{
-        marginTop: 57,
-        position: 'relative',
-        overflow: 'hidden'
-      }}>
+      <section className="hero-section">
+        {/* Blurred backdrop — desktop only, fills the sides with soft edges */}
         <img
-          src="/media/couple_disney.png"
+          src="/media/homepage.png"
+          alt=""
+          aria-hidden="true"
+          className="hero-backdrop"
+        />
+        {/* Sharp photo — full size, no zoom, centered */}
+        <img
+          src="/media/homepage.png"
           alt="Carolyn and Marco"
-          style={{
-            width: '100%',
-            height: 'auto',
-            display: 'block'
-          }}
+          className="hero-photo"
         />
         {/* Dark overlay for text legibility */}
         <div style={{
@@ -97,6 +97,9 @@ export default function Home() {
             <p style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 18, fontStyle: 'italic', color: 'var(--text-muted)', marginTop: 20 }}>
               until the big day
             </p>
+            <h3 style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 'clamp(22px,3vw,32px)', fontWeight: 300, color: 'var(--burgundy)', marginTop: 10 }}>
+              May 16th 2027
+            </h3>
           </div>
 
           {/* Divider */}
@@ -134,20 +137,20 @@ export default function Home() {
 
             {/* Left-floated image */}
             <div className="story-img-left">
-              <img src="/media/front_2.jpeg" alt="Carolyn and Marco" />
+              <img src="/media/front_2.png" alt="Carolyn and Marco" />
             </div>
 
-            <p>Some people say we're all connected by six degrees of separation—that every stranger is only a handful of introductions away from becoming someone who changes your life. Looking back, it almost feels as though our story was quietly writing itself long before we ever realized we were meant to read the same chapter.</p>
-            <p>Our paths first crossed during the summer of 2016. Marco was hosting what can only be described as a Project X-worthy party at his parents' house, and Carolyn's only mission that night was finding the bathroom. We exchanged a few words, then went our separate ways. Neither of us could have imagined that years later, we'd laugh about how insignificant that moment seemed.</p>
-            <p>Then came 2021. While quarantining with COVID—and with plenty of time on his hands, Marco decided to send Carolyn a message on Instagram. One DM changed everything.</p>
+            <p>Some people say we're all connected by six degrees of separation; that every stranger is only a handful of introductions away from becoming someone who changes your life. Looking back, it almost feels as though our story was quietly writing itself long before we ever realized we were meant to read the same chapter.</p>
+            <p>Our paths first crossed during the summer of 2016. Marco was hosting a Project X-worthy party at his parents' house, and Carolyn was locked in on finding the bathroom. We exchanged a few words, then went our separate ways. Neither of us could have imagined that years later, we'd laugh about how insignificant that moment seemed.</p>
+            <p>Then came 2021. While quarantining with COVID, Marco decided to send Carolyn a message on Instagram — the rest is history.</p>
 
             {/* Right-floated image */}
             <div className="story-img-right">
-              <img src="/media/proposal_1.jpeg" alt="The proposal" />
+              <img src="/media/proposal_1.png" alt="The proposal" />
             </div>
 
-            <p>From our very first date, it felt less like meeting someone new and more like finding someone we'd somehow known all along. As the conversation unfolded, so did an almost unbelievable series of connections. We discovered our childhood homes in Flushing were only a few blocks apart. We grew up visiting the same neighborhood staples—the retro Burger King in Douglaston, Tuesday movie nights with $5 tickets, and so many of the places that shaped our childhoods without us ever meeting. There were even more remarkable threads. Carolyn worked at a CVS that ordered pizza almost every day from the Italian restaurant where Marco delivered pies during college. Years later, Marco unknowingly attended Carolyn's graduation from St. John's University because his sister, Christine, graduated from pharmacy school with her.</p>
-            <p>The more we talked, the more it felt like our lives had been gently orbiting one another for years—close enough to leave fingerprints on each other's stories, but waiting for the right moment to finally collide. We met in our late 20s, not because we were late, but because we were ready. We had dreams that demanded long hours, unwavering faith, and a partner who wouldn't just celebrate the destination, but understand the journey. In each other, we found someone who believed in those dreams as deeply as their own—a best friend, a safe place, and the kind of love that makes life's biggest ambitions feel possible.</p>
+            <p>From our very first date, it felt less like meeting someone new and more like finding someone we'd somehow known all along. As the conversation unfolded, so did an almost unbelievable series of connections. We discovered our childhood homes in Flushing were only a few blocks apart. We grew up visiting the same neighborhood staples like the retro Burger King in Douglaston, accompanying our moms curtain shopping at Jembro, and so many of the places that shaped our childhoods without us ever meeting. There were even more remarkable threads. Carolyn worked at a CVS that ordered pizza almost every day from the Italian restaurant where Marco delivered pies during college. Years later, Marco unknowingly attended Carolyn's graduation from St. John's University because his sister, Christine, graduated from pharmacy school with her.</p>
+            <p>The more we talked, the more it felt like our lives had been gently orbiting one another for years; close enough to leave fingerprints on each other's stories, but waiting for the right moment to finally collide. We met in our late 20s, not because we were late, but because we were ready for each other. We had dreams that demanded long hours, unwavering faith, and a partner who wouldn't just celebrate the destination, but understand the journey. In each other, we found someone who believed in those dreams as deeply as their own. It&rsquo;s the kind of love that makes life's biggest ambitions feel possible.</p>
             <p>Five years later, we're standing here, surrounded by the people who helped shape us into who we are. We couldn't be more grateful that every unexpected detour, every near miss, and every "almost" led us to this moment.</p>
             <p className="story-closing">Thank you for being part of the next chapter of our story. We can't wait to celebrate with you!</p>
 
