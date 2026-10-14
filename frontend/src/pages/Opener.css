@@ -342,10 +342,8 @@
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: 55% 50%;
-  transform: scale(1.06);
-  transform-origin: center;
+  object-fit: contain;
+  object-position: center;
   z-index: 2;
 }
 
