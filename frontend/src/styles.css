@@ -531,11 +531,16 @@ h1, h2, h3, h4 {
   margin-top: 57px;
   position: relative;
   overflow: hidden;
+  /* Wide band — crops the top & bottom 25% of the portrait photo */
+  aspect-ratio: 4 / 3;
 }
 
-/* Mobile: photo at natural aspect ratio, section hugs it — no gaps */
+/* Mobile: photo centered inside the band; overflow crops it evenly */
 .hero-photo {
-  position: relative;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 100%;
   height: auto;
   display: block;
@@ -547,11 +552,16 @@ h1, h2, h3, h4 {
 }
 
 @media (min-width: 768px) {
-  /* Desktop: fixed full-height hero, photo contained inside */
+  /* Desktop: half-viewport band; photo keeps its full 100vh size so the
+     band crops the top & bottom 25% of the picture */
+  .hero-section {
+    aspect-ratio: auto;
+    height: 50vh;
+  }
+
   .hero-photo {
+    width: auto;
     height: 100vh;
-    object-fit: contain;
-    object-position: center;
   }
 
   .hero-backdrop {
@@ -559,7 +569,7 @@ h1, h2, h3, h4 {
     position: absolute;
     inset: 0;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     object-fit: cover;
     /* soft feathered edges via mask — fades to transparent at the rim */
     -webkit-mask-image: radial-gradient(ellipse 85% 85% at center, black 55%, transparent 98%);

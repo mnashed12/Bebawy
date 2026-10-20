@@ -27,14 +27,6 @@ export default function Gifts() {
               alt="Carolyn and Marco"
               style={{ width: '100%', height: 'auto', objectFit: 'contain', objectPosition: 'center', display: 'block' }}
             />
-            <p style={{
-              marginTop: 14,
-              textAlign: 'center',
-              fontFamily: 'Cormorant Garamond, serif',
-              fontSize: 'clamp(20px, 3vw, 28px)',
-              fontStyle: 'italic',
-              color: 'var(--text-dark)'
-            }}>Kyoto, Japan · November 2024</p>
           </div>
 
           <div style={{ textAlign: 'center' }}>
