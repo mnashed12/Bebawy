@@ -1,7 +1,7 @@
 ﻿import React, { useState, useRef, useEffect, useCallback } from 'react'
 import './Opener.css'
 
-const PASSWORD = '$BeMyBebawy27!'
+const PASSWORD = 'TheBebawys2027!'
 const CARD_SIZE = 110   // canvas px (circle)
 const CARD_W = 360      // canvas px (bar)
 const CARD_H = 120      // canvas px (bar)
